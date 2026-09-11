@@ -8,7 +8,7 @@
   <title>MAYISM — Pheemwara Choymuang · Visual Artist & Illustrator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Thai:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Thai:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=7">
   <style id="index-polish-v7">
     /* Index-only polish: keeps the existing CSS untouched. */
@@ -161,6 +161,756 @@ footer{padding:30px 5vw!important;background:var(--ink)!important;color:#fff!imp
 @media(max-width:850px){.hero{grid-template-columns:1fr!important;padding-top:16vh!important}.hero-visual{min-height:560px!important}.hero-main-card{width:72%!important;right:7%!important}.intro-section{grid-template-columns:1fr!important;min-height:70vh!important}.section-head{grid-template-columns:1fr!important;gap:25px}.gallery,.traditional-gallery{grid-template-columns:1fr 1fr!important}.gallery .art-card,.collection-block:not(.signature-block) .gallery .art-card{grid-column:auto!important;margin:0!important}.gallery .art-card:nth-child(2),.gallery .art-card:nth-child(4){margin-top:35px!important}.about{grid-template-columns:1fr!important}.technical-facts{grid-template-columns:1fr}.technical-strip{grid-template-columns:1fr 1fr}.creative-note-grid{grid-template-columns:1fr}.creative-note-card:nth-child(2),.creative-note-card:nth-child(3){transform:none}.creative-signoff{flex-direction:column;align-items:flex-start;gap:12px}}
 @media(max-width:600px){.header{left:10px;right:10px;top:10px}.header nav{display:none}.hero{padding:15vh 6vw 7vh!important}.hero h1{font-size:74px!important}.hero-visual{min-height:480px!important}.hero-main-card{width:78%!important}.profile-card{left:0;bottom:10%}.sticker{width:85px;height:85px}.work{padding-left:6vw!important;padding-right:6vw!important}.gallery,.traditional-gallery{grid-template-columns:1fr!important}.traditional-block{margin-left:-6vw;margin-right:-6vw;padding-left:6vw!important;padding-right:6vw!important}.about,.contact,.services{padding-left:6vw!important;padding-right:6vw!important}.about-copy h2,.contact h2{font-size:70px!important}.technical-strip{grid-template-columns:1fr!important}.technical-strip .architecture-card:nth-child(2){transform:none}.studio-assistant{grid-template-columns:120px 1fr!important}.assistant-copy strong{font-size:28px}.marquee{height:54px!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee>div:not(.marquee-ghost){animation:none}.reveal{opacity:1;transform:none!important}.art-card img{transition:none}}
+</style>
+
+
+<style id="mayism-final-responsive-fix">
+/* FINAL RESPONSIVE SYSTEM — index.html only
+   Desktop = spacious editorial composition
+   Tablet = controlled 2-column rhythm
+   Mobile = intentional single-column layout
+*/
+html,body{max-width:100%;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%}
+button,a{max-width:100%}
+
+/* ---- LARGE DESKTOP ---- */
+@media (min-width:1200px){
+  .hero{
+    min-height:clamp(720px,100svh,980px)!important;
+    grid-template-columns:minmax(0,1.02fr) minmax(480px,.88fr)!important;
+    gap:5vw!important;
+    padding-left:7vw!important;
+    padding-right:7vw!important;
+  }
+  .hero-copy{max-width:760px!important}
+  .hero h1{font-size:clamp(92px,8.7vw,158px)!important}
+  .hero-text{max-width:560px!important}
+  .hero-visual{min-height:680px!important}
+  .hero-main-card{width:min(68%,570px)!important}
+  .work,.technical{padding-left:7vw!important;padding-right:7vw!important}
+  .creative-notes{padding-left:8vw!important;padding-right:8vw!important}
+  .section-head{grid-template-columns:minmax(0,1fr) minmax(300px,.48fr)!important}
+  .section-head>p{max-width:430px!important}
+}
+
+/* ---- NORMAL DESKTOP / LAPTOP ---- */
+@media (min-width:851px) and (max-width:1199px){
+  .hero{
+    min-height:760px!important;
+    grid-template-columns:minmax(0,1fr) minmax(390px,.78fr)!important;
+    gap:4vw!important;
+    padding-left:5vw!important;
+    padding-right:5vw!important;
+  }
+  .hero h1{font-size:clamp(76px,9.2vw,120px)!important}
+  .hero-text{max-width:500px!important}
+  .hero-visual{min-height:600px!important}
+  .hero-main-card{width:min(74%,500px)!important}
+  .profile-card{left:0!important;bottom:10%!important}
+  .sticker{right:0!important}
+  .section-head{grid-template-columns:minmax(0,1fr) minmax(270px,.52fr)!important}
+  .section-head h2{font-size:clamp(62px,7vw,100px)!important}
+  .collection-heading{gap:20px!important}
+  .collection-heading>div{min-width:0}
+  .collection-heading p{max-width:500px!important}
+  .digital-gallery .art-card{min-width:0}
+  .technical-facts{gap:0!important}
+  .technical-facts>div{min-width:0}
+  .technical-facts strong{font-size:20px!important}
+  .technical-facts small{display:block;overflow-wrap:anywhere}
+}
+
+/* ---- TABLET ---- */
+@media (min-width:601px) and (max-width:850px){
+  .header{left:18px!important;right:18px!important}
+  .hero{
+    grid-template-columns:1fr!important;
+    min-height:auto!important;
+    padding:140px 7vw 90px!important;
+  }
+  .hero-copy{max-width:760px!important;padding-top:0!important}
+  .hero h1{font-size:clamp(72px,13vw,112px)!important}
+  .hero-text{max-width:620px!important}
+  .hero-visual{min-height:590px!important;width:min(100%,650px)!important;margin:0 auto!important}
+  .hero-main-card{width:72%!important;right:8%!important}
+  .profile-card{left:2%!important;bottom:9%!important}
+  .sticker{right:3%!important;bottom:3%!important}
+  .section-head,.about{grid-template-columns:1fr!important}
+  .section-head{gap:28px!important}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .gallery .art-card,
+  .collection-block:not(.signature-block) .gallery .art-card{
+    grid-column:auto!important;
+    margin:0!important;
+    min-width:0!important;
+  }
+  .gallery .art-card:first-child{grid-column:span 2!important}
+  .gallery .art-card:nth-child(even){margin-top:30px!important}
+  .traditional-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .traditional-gallery .art-card:nth-child(3){grid-column:span 2!important;max-width:65%;margin-inline:auto!important}
+  .technical-facts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .technical-facts>div:last-child{grid-column:span 2}
+  .technical-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .technical-strip .architecture-card:nth-child(3){grid-column:span 2;max-width:70%;margin-inline:auto}
+  .creative-note-grid{grid-template-columns:1fr 1fr!important}
+  .creative-note-card:nth-child(3){grid-column:span 2}
+  .creative-signoff{gap:20px!important}
+}
+
+/* ---- PHONE ---- */
+@media (max-width:600px){
+  .header{
+    left:10px!important;right:10px!important;top:10px!important;
+    max-width:calc(100vw - 20px)!important;
+  }
+  .hero{
+    display:block!important;
+    min-height:auto!important;
+    padding:125px 22px 70px!important;
+  }
+  .hero-copy{padding-top:0!important}
+  .hero-copy .kicker{line-height:1.5!important;margin-top:20px!important}
+  .hero h1{
+    font-size:clamp(58px,18vw,82px)!important;
+    line-height:.84!important;
+    overflow-wrap:normal!important;
+  }
+  .hero-text{
+    font-size:15px!important;
+    line-height:1.65!important;
+    max-width:100%!important;
+  }
+  .hero-actions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    gap:10px!important;
+  }
+  .hero-meta{
+    display:grid!important;
+    grid-template-columns:auto 1fr!important;
+    gap:8px 12px!important;
+  }
+  .hero-meta .line{display:none!important}
+  .hero-visual{
+    min-height:430px!important;
+    width:100%!important;
+    margin-top:34px!important;
+  }
+  .hero-main-card{
+    width:78%!important;
+    right:5%!important;
+    top:3%!important;
+    border-width:8px!important;
+  }
+  .profile-card{
+    left:0!important;
+    bottom:7%!important;
+    padding:9px 11px!important;
+    gap:8px!important;
+    max-width:210px!important;
+  }
+  .profile-card img{width:48px!important;height:48px!important}
+  .profile-card strong{font-size:17px!important}
+  .profile-card div span{font-size:9px!important}
+  .sticker{
+    width:76px!important;height:76px!important;
+    right:0!important;bottom:1%!important;
+  }
+  .intro-section,
+  .work,
+  .about,
+  .services,
+  .contact,
+  .technical,
+  .creative-notes{
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  .intro-section{display:block!important}
+  .intro-section h2{
+    font-size:clamp(50px,15vw,70px)!important;
+    line-height:.88!important;
+  }
+  .intro-section p{font-size:15px!important;line-height:1.65!important}
+  .mini-note{margin-top:30px!important}
+  .section-head{display:block!important;margin-bottom:55px!important}
+  .section-head h2,
+  .technical-intro h2,
+  .creative-notes-head h2{
+    font-size:clamp(52px,15vw,76px)!important;
+    line-height:.86!important;
+  }
+  .section-head>p{margin-top:22px!important}
+  .collection-heading{
+    display:grid!important;
+    grid-template-columns:28px minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+  .collection-heading h3{font-size:34px!important}
+  .collection-heading p{font-size:14px!important;line-height:1.55!important}
+  .gallery,
+  .traditional-gallery{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+  .gallery .art-card,
+  .gallery .art-card:first-child,
+  .collection-block:not(.signature-block) .gallery .art-card{
+    grid-column:auto!important;
+    margin:0!important;
+    width:100%!important;
+  }
+  .traditional-block{
+    margin-left:-22px!important;margin-right:-22px!important;
+    padding-left:22px!important;padding-right:22px!important;
+  }
+  .traditional-gallery .art-card:nth-child(n){
+    grid-column:auto!important;
+    max-width:100%!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  .card-label{
+    display:block!important;
+    line-height:1.4!important;
+  }
+  .card-label b,.card-label small{
+    display:block!important;
+  }
+  .card-label small{margin-top:4px!important}
+  .about{display:block!important}
+  .about-photo{max-width:480px!important;margin-bottom:42px!important}
+  .about-copy h2{font-size:clamp(54px,16vw,76px)!important}
+  .about-lead{font-size:18px!important;line-height:1.5!important}
+  .about-copy>p:not(.about-lead){font-size:15px!important;line-height:1.7!important}
+  .facts{display:grid!important;grid-template-columns:1fr!important;gap:16px!important}
+  .service-grid{display:grid!important;grid-template-columns:1fr!important}
+  .service-grid article{min-width:0!important}
+  .contact h2{font-size:clamp(58px,17vw,82px)!important;line-height:.86!important}
+  .social-links{grid-template-columns:1fr!important}
+  .social-btn{
+    min-width:0!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+  }
+  .technical-facts,
+  .technical-strip,
+  .creative-note-grid{
+    grid-template-columns:1fr!important;
+  }
+  .technical-facts>div{border-right:0!important}
+  .technical-strip .architecture-card:nth-child(n){
+    grid-column:auto!important;
+    transform:none!important;
+    max-width:none!important;
+  }
+  .studio-assistant{
+    grid-template-columns:92px minmax(0,1fr)!important;
+    max-width:100%!important;
+    gap:14px!important;
+    margin-top:40px!important;
+  }
+  .assistant-copy strong{font-size:25px!important}
+  .assistant-copy p{font-size:14px!important}
+  .creative-note-card,
+  .creative-note-card:nth-child(2),
+  .creative-note-card:nth-child(3){
+    min-height:auto!important;
+    transform:none!important;
+    margin:0!important;
+  }
+  .creative-signoff{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:10px!important;
+  }
+  footer{
+    padding-left:22px!important;
+    padding-right:22px!important;
+    gap:16px!important;
+  }
+}
+
+/* Long words / handles / Thai text should never create a second viewport */
+.kicker,.hero-text,.section-head p,.collection-heading p,
+.about-copy p,.service-grid p,.technical-intro p,
+.technical-facts strong,.technical-facts small,
+.social-btn,.creative-note-card p,.creative-note-card small{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+</style>
+
+
+<style id="mayism-artist-wow-final">
+/* =========================================================
+   MAYISM — FINAL ART-DIRECTOR TYPE + COMPOSITION PASS
+   index.html only
+   Stable desktop first, then tablet/phone.
+   ========================================================= */
+
+:root{
+  --artist-serif:'Cormorant Garamond','DM Serif Display',serif;
+  --artist-display:'Space Grotesk',sans-serif;
+  --artist-body:'DM Sans',sans-serif;
+}
+
+/* ---------- TYPOGRAPHY: less template, more artist ---------- */
+body{
+  font-family:var(--artist-body);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+.logo,
+.header nav a,
+.hero-copy .pill,
+.hero-copy .kicker,
+.hero-meta,
+.section-tag,
+.collection-heading>span,
+.collection-heading h3,
+.card-label b,
+.card-label small,
+.service-grid h3,
+.technical-facts strong,
+.technical-facts small,
+.experience-line,
+.assistant-copy strong,
+.assistant-copy span,
+.assistant-copy small,
+.social-btn,
+footer .logo{
+  font-family:var(--artist-display)!important;
+}
+.hero h1 em,
+.intro-section h2 em,
+.section-head h2 em,
+.about-copy h2 em,
+.services h2 em,
+.contact h2 em,
+.technical-intro h2 em,
+.creative-notes-head h2 em,
+.photo-sticker,
+.creative-signoff b{
+  font-family:var(--artist-serif)!important;
+  font-style:italic!important;
+  font-weight:500!important;
+}
+
+/* Give headings a more deliberate editorial rhythm. */
+.hero h1,
+.intro-section h2,
+.section-head h2,
+.about-copy h2,
+.services h2,
+.contact h2,
+.technical-intro h2,
+.creative-notes-head h2{
+  font-kerning:normal;
+  text-wrap:balance;
+}
+.hero h1{letter-spacing:-.065em!important}
+.intro-section h2,
+.section-head h2,
+.about-copy h2,
+.services h2,
+.technical-intro h2,
+.creative-notes-head h2{letter-spacing:-.06em!important}
+
+/* ---------- HERO IDENTITY ---------- */
+.hero-copy .pill{
+  letter-spacing:.13em!important;
+  padding:9px 13px!important;
+}
+.hero-copy .kicker{
+  letter-spacing:.2em!important;
+  opacity:.58!important;
+}
+.hero h1 em{
+  display:inline-block;
+  margin-left:.035em;
+  transform:translateY(.035em) rotate(-2deg);
+  color:var(--rose)!important;
+}
+.hero-text{
+  max-width:530px!important;
+  font-size:17px!important;
+  line-height:1.72!important;
+}
+.hero-meta{
+  font-size:10px!important;
+  letter-spacing:.13em!important;
+}
+
+/* ---------- HERO PROFILE CARD ---------- */
+.profile-card{
+  display:grid!important;
+  grid-template-columns:58px minmax(0,1fr) auto!important;
+  align-items:center!important;
+  width:min(290px,72%)!important;
+  min-height:82px!important;
+  padding:10px 12px!important;
+  gap:11px!important;
+  transform:rotate(-3deg)!important;
+}
+.profile-card img{
+  width:58px!important;
+  height:58px!important;
+  object-fit:cover!important;
+  border-radius:50%!important;
+}
+.profile-card div{
+  min-width:0!important;
+}
+.profile-card strong{
+  display:block!important;
+  font:600 21px/1 var(--artist-display)!important;
+  letter-spacing:-.045em!important;
+}
+.profile-card div span{
+  display:block!important;
+  margin-top:5px!important;
+  font:500 9px/1.25 var(--artist-display)!important;
+  text-transform:uppercase;
+  letter-spacing:.11em!important;
+  opacity:.56;
+}
+.profile-card .arrow{
+  font:500 18px/1 var(--artist-display)!important;
+}
+
+/* ---------- CIRCULAR ARTIST SEAL / STICKER ----------
+   The old centered stack looked like text placed inside a circle.
+   This makes it read like a designed artist seal instead. */
+.sticker{
+  width:116px!important;
+  height:116px!important;
+  padding:13px!important;
+  border:1px solid rgba(255,255,255,.45)!important;
+  outline:1px solid rgba(33,27,33,.28);
+  outline-offset:5px;
+  background:var(--ink)!important;
+  border-radius:50%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:3px!important;
+  text-align:center!important;
+  transform:rotate(6deg)!important;
+  overflow:hidden!important;
+}
+.sticker:before{
+  content:"MAYISM";
+  display:block;
+  font:600 8px/1 var(--artist-display)!important;
+  letter-spacing:.22em!important;
+  margin-left:.22em;
+  opacity:.62;
+}
+.sticker span{
+  display:block!important;
+  font:500 9px/1.2 'Noto Sans Thai',var(--artist-display)!important;
+  letter-spacing:.08em!important;
+  opacity:.82;
+}
+.sticker b{
+  display:block!important;
+  margin-top:1px!important;
+  font:500 17px/.84 var(--artist-serif)!important;
+  letter-spacing:.01em!important;
+}
+.sticker b:after{
+  content:"✦";
+  display:block;
+  font:500 8px/1 var(--artist-display);
+  margin-top:5px;
+  opacity:.55;
+}
+
+/* ---------- ABOUT PHOTO SEAL ---------- */
+.photo-sticker{
+  width:92px!important;
+  height:92px!important;
+  padding:13px!important;
+  display:grid!important;
+  place-items:center!important;
+  text-align:center!important;
+  border:1px solid rgba(255,255,255,.2)!important;
+  box-shadow:7px 9px 0 rgba(33,27,33,.18)!important;
+  font-size:19px!important;
+  line-height:.8!important;
+}
+.photo-sticker:after{
+  content:"MAYISM · 2026";
+  display:block;
+  font:600 6px/1 var(--artist-display);
+  letter-spacing:.16em;
+  margin-top:5px;
+  opacity:.55;
+}
+
+/* ---------- SECTION LABELS / MICRO TYPE ---------- */
+.section-tag{
+  letter-spacing:.17em!important;
+  font-size:9px!important;
+}
+.collection-heading{
+  gap:28px!important;
+}
+.collection-heading h3{
+  letter-spacing:-.045em!important;
+}
+.collection-heading p{
+  font-family:var(--artist-body)!important;
+  font-size:14px!important;
+  line-height:1.65!important;
+}
+.card-label{
+  align-items:flex-start!important;
+  gap:4px!important;
+}
+.card-label b{
+  font-size:14px!important;
+  line-height:1.2!important;
+  letter-spacing:-.025em!important;
+}
+.card-label small{
+  font-size:8px!important;
+  line-height:1.25!important;
+  letter-spacing:.12em!important;
+}
+
+/* ---------- DESKTOP GALLERY: controlled asymmetry, no drifting ---------- */
+@media (min-width:851px){
+  .work{
+    padding-left:6vw!important;
+    padding-right:6vw!important;
+  }
+  .section-head{
+    grid-template-columns:minmax(0,1.15fr) minmax(280px,.62fr)!important;
+    gap:6vw!important;
+  }
+
+  /* Signature row: asymmetrical but anchored to a predictable grid. */
+  .signature-block .gallery{
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    column-gap:22px!important;
+    row-gap:58px!important;
+  }
+  .signature-block .gallery .art-card:nth-child(1){
+    grid-column:1 / span 7!important;
+    margin:0!important;
+  }
+  .signature-block .gallery .art-card:nth-child(2){
+    grid-column:9 / span 4!important;
+    margin:88px 0 0!important;
+  }
+  .signature-block .gallery .art-card:nth-child(3){
+    grid-column:2 / span 4!important;
+    margin:0!important;
+  }
+  .signature-block .gallery .art-card:nth-child(4){
+    grid-column:7 / span 4!important;
+    margin:54px 0 0!important;
+  }
+  .signature-block .gallery .art-card:nth-child(5){
+    grid-column:10 / span 3!important;
+    margin:-8px 0 0!important;
+  }
+
+  /* Digital archive: consistent rhythm instead of random offsets. */
+  .collection-block:not(.signature-block) .gallery{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:30px 22px!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card{
+    grid-column:auto!important;
+    margin:0!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(4n+2){
+    margin-top:42px!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(4n+4){
+    margin-top:18px!important;
+  }
+
+  /* Traditional: gallery should feel like pinned studies, not broken cards. */
+  .traditional-gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:34px!important;
+  }
+  .traditional-gallery .art-card:nth-child(1){transform:rotate(-1.5deg)!important}
+  .traditional-gallery .art-card:nth-child(2){transform:translateY(38px) rotate(1.2deg)!important}
+  .traditional-gallery .art-card:nth-child(3){transform:rotate(-.8deg)!important}
+
+  .technical-strip .architecture-card:nth-child(2){
+    transform:translateY(30px)!important;
+  }
+
+  .creative-note-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    align-items:start!important;
+  }
+  .creative-note-card:nth-child(2){
+    transform:translateY(28px) rotate(.7deg)!important;
+  }
+}
+
+/* ---------- LAPTOP: preserve desktop character, just tighten it ---------- */
+@media (min-width:851px) and (max-width:1199px){
+  .hero{
+    grid-template-columns:minmax(0,1fr) minmax(360px,.78fr)!important;
+    gap:3vw!important;
+  }
+  .hero h1{font-size:clamp(72px,8.7vw,112px)!important}
+  .hero-visual{min-height:570px!important}
+  .hero-main-card{width:min(76%,470px)!important}
+  .profile-card{width:270px!important}
+  .sticker{width:100px!important;height:100px!important}
+
+  .signature-block .gallery{
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    column-gap:16px!important;
+    row-gap:40px!important;
+  }
+  .signature-block .gallery .art-card:nth-child(1){grid-column:1/span 7!important}
+  .signature-block .gallery .art-card:nth-child(2){grid-column:9/span 4!important;margin-top:65px!important}
+  .signature-block .gallery .art-card:nth-child(3){grid-column:2/span 4!important}
+  .signature-block .gallery .art-card:nth-child(4){grid-column:7/span 4!important;margin-top:40px!important}
+  .signature-block .gallery .art-card:nth-child(5){grid-column:10/span 3!important}
+
+  .collection-block:not(.signature-block) .gallery{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:24px 18px!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card{margin:0!important}
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(3n+2){margin-top:28px!important}
+}
+
+/* ---------- TABLET: still designed, not just stacked ---------- */
+@media (min-width:601px) and (max-width:850px){
+  .hero{padding-top:130px!important}
+  .hero h1{font-size:clamp(70px,12vw,100px)!important}
+  .hero-visual{min-height:560px!important}
+  .profile-card{width:275px!important}
+  .sticker{width:100px!important;height:100px!important}
+
+  .signature-block .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:32px 18px!important;
+  }
+  .signature-block .gallery .art-card{
+    grid-column:auto!important;
+    margin:0!important;
+  }
+  .signature-block .gallery .art-card:nth-child(1){
+    grid-column:1/-1!important;
+    max-width:74%!important;
+  }
+  .signature-block .gallery .art-card:nth-child(2){margin-top:32px!important}
+  .signature-block .gallery .art-card:nth-child(4){margin-top:22px!important}
+
+  .collection-block:not(.signature-block) .gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:28px 18px!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card{margin:0!important}
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(even){margin-top:24px!important}
+
+  .traditional-gallery{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .traditional-gallery .art-card:nth-child(2){transform:translateY(28px) rotate(1deg)!important}
+  .traditional-gallery .art-card:nth-child(3){
+    grid-column:1/-1!important;
+    max-width:58%!important;
+    margin:34px auto 0!important;
+    transform:rotate(-.8deg)!important;
+  }
+}
+
+/* ---------- PHONE: elegant single-column, no accidental overflow ---------- */
+@media (max-width:600px){
+  .logo{font-size:28px!important}
+  .hero h1{
+    font-size:clamp(56px,17vw,80px)!important;
+    letter-spacing:-.06em!important;
+  }
+  .hero h1 em{transform:rotate(-1deg) translateY(.03em)}
+  .hero-text{font-size:15px!important}
+  .hero-visual{min-height:430px!important}
+  .hero-main-card{
+    width:78%!important;
+    right:4%!important;
+  }
+  .profile-card{
+    width:225px!important;
+    min-height:70px!important;
+    grid-template-columns:46px minmax(0,1fr) auto!important;
+  }
+  .profile-card img{width:46px!important;height:46px!important}
+  .profile-card strong{font-size:17px!important}
+  .sticker{
+    width:78px!important;
+    height:78px!important;
+    padding:8px!important;
+    right:0!important;
+  }
+  .sticker:before{font-size:6px!important}
+  .sticker span{font-size:7px!important}
+  .sticker b{font-size:14px!important}
+
+  .section-head h2,
+  .about-copy h2,
+  .services h2,
+  .technical-intro h2,
+  .creative-notes-head h2{
+    letter-spacing:-.055em!important;
+  }
+  .collection-heading h3{font-size:32px!important}
+  .collection-heading p{font-size:13px!important}
+
+  .signature-block .gallery,
+  .collection-block:not(.signature-block) .gallery,
+  .traditional-gallery{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+  .signature-block .gallery .art-card,
+  .collection-block:not(.signature-block) .gallery .art-card,
+  .traditional-gallery .art-card{
+    grid-column:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  .signature-block .gallery .art-card:first-child{
+    max-width:none!important;
+  }
+
+  .photo-sticker{
+    width:76px!important;
+    height:76px!important;
+    font-size:16px!important;
+  }
+
+  .service-grid article{
+    grid-template-columns:34px minmax(0,1fr) 20px!important;
+  }
+}
+
+/* Never let decorative editorial type create a second viewport. */
+.hero:before,
+.about:before,
+.marquee-ghost{
+  max-width:100vw!important;
+  overflow:hidden!important;
+}
 </style>
 
 </head>
