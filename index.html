@@ -913,6 +913,230 @@ footer .logo{
 }
 </style>
 
+
+<style id="mayism-header-logo-final">
+/* Restore the strong MAYISM header wordmark from the earlier treatment. */
+.header .logo{
+  display:inline-flex!important;
+  align-items:baseline!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(34px,3.5vw,52px)!important;
+  line-height:.8!important;
+  font-weight:700!important;
+  letter-spacing:-.085em!important;
+  text-transform:none!important;
+  color:var(--ink)!important;
+  white-space:nowrap!important;
+}
+.header .logo .dot{
+  font-size:.34em!important;
+  margin-left:.04em!important;
+  color:var(--hot)!important;
+}
+@media (max-width:850px){
+  .header .logo{font-size:38px!important}
+}
+@media (max-width:600px){
+  .header .logo{font-size:32px!important}
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style id="mayism-typography-v12">
+/* MAYISM — expressive editorial typography + hard overflow guard */
+:root{
+  --may-serif:'Instrument Serif',serif;
+  --may-sans:'Manrope',sans-serif;
+}
+body,
+.hero-text,
+.intro-section p,
+.section-head>p,
+.collection-heading p,
+.about-copy p,
+.service-grid article p,
+.technical-intro>p,
+.technical-facts small,
+.creative-note-card p,
+.creative-note-card small,
+.contact>p{
+  font-family:var(--may-sans)!important;
+}
+.hero h1,
+.intro-section h2,
+.section-head h2,
+.about-copy h2,
+.services h2,
+.contact h2,
+.technical-intro h2,
+.creative-notes-head h2,
+.creative-signoff b{
+  font-family:var(--may-serif)!important;
+  font-weight:400!important;
+  letter-spacing:-.035em!important;
+}
+.hero h1 em,
+.intro-section h2 em,
+.section-head h2 em,
+.about-copy h2 em,
+.services h2 em,
+.contact h2 em,
+.technical-intro h2 em,
+.creative-notes-head h2 em{
+  font-family:var(--may-serif)!important;
+  font-style:italic!important;
+  font-weight:400!important;
+  letter-spacing:-.025em!important;
+}
+.hero h1{font-size:clamp(88px,10vw,168px)!important;line-height:.76!important}
+.intro-section h2,
+.section-head h2,
+.about-copy h2,
+.services h2,
+.technical-intro h2,
+.creative-notes-head h2{
+  line-height:.78!important;
+}
+.collection-heading h3,
+.service-grid h3,
+.creative-note-card h3{
+  font-family:var(--may-sans)!important;
+  font-weight:700!important;
+  letter-spacing:-.055em!important;
+}
+.card-label b{
+  font-family:var(--may-sans)!important;
+  font-weight:700!important;
+  font-size:14px!important;
+  letter-spacing:-.035em!important;
+}
+.card-label small{
+  font-family:var(--may-sans)!important;
+  font-weight:600!important;
+  letter-spacing:.1em!important;
+}
+.header .logo,
+footer .logo{
+  font-family:var(--may-sans)!important;
+  font-weight:800!important;
+  letter-spacing:-.09em!important;
+  text-transform:none!important;
+}
+.header nav a,
+.hero-copy .pill,
+.hero-copy .kicker,
+.hero-meta,
+.section-tag,
+.collection-heading>span,
+.service-grid>article>span,
+.technical-facts span,
+.technical-facts strong,
+.technical-facts small,
+.social-btn,
+.assistant-copy strong,
+.assistant-copy span,
+.assistant-copy small,
+footer{
+  font-family:var(--may-sans)!important;
+}
+
+/* Never allow a label, handle, cat caption, or Thai phrase to escape its box. */
+.profile-card,
+.profile-card div,
+.sticker,
+.sticker * ,
+.card-label,
+.card-label *,
+.collection-heading,
+.collection-heading>div,
+.service-grid article,
+.service-grid article>div,
+.social-links,
+.social-btn,
+.studio-assistant,
+.assistant-copy,
+.assistant-copy *,
+.creative-note-card,
+.creative-note-card *{
+  min-width:0!important;
+  max-width:100%;
+}
+.profile-card strong,
+.profile-card span,
+.sticker span,
+.sticker b,
+.card-label b,
+.card-label small,
+.social-btn,
+.assistant-copy strong,
+.assistant-copy span,
+.assistant-copy small,
+.creative-note-card h3,
+.creative-note-card p,
+.creative-note-card small{
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+}
+
+/* The cat card gets a proper editorial caption instead of a loose sentence. */
+.studio-assistant{
+  overflow:hidden!important;
+}
+.assistant-copy{
+  overflow:hidden!important;
+}
+.assistant-copy strong{
+  font-family:var(--may-serif)!important;
+  font-size:42px!important;
+  line-height:.82!important;
+  letter-spacing:-.025em!important;
+}
+.assistant-copy p{
+  font-family:var(--may-sans)!important;
+  font-size:13px!important;
+  line-height:1.45!important;
+  margin:8px 0 5px!important;
+}
+.assistant-copy span,
+.assistant-copy small{
+  font-size:8px!important;
+  letter-spacing:.14em!important;
+}
+
+/* Artwork captions: title has hierarchy, medium reads like archive metadata. */
+.card-label{
+  padding-top:13px!important;
+  border-top:1px solid var(--line)!important;
+}
+.card-label b{display:block!important;line-height:1.05!important}
+.card-label small{display:block!important;margin-top:5px!important;opacity:.58!important}
+
+/* More authored rhythm for the section copy. */
+.collection-heading p,
+.section-head>p,
+.about-copy>p:not(.about-lead),
+.technical-intro>p,
+.contact>p{
+  letter-spacing:-.01em!important;
+}
+
+/* Small screens: keep the display type elegant rather than huge and cramped. */
+@media(max-width:600px){
+  .hero h1{font-size:clamp(62px,19vw,88px)!important}
+  .intro-section h2,
+  .section-head h2,
+  .about-copy h2,
+  .services h2,
+  .technical-intro h2,
+  .creative-notes-head h2,
+  .contact h2{
+    font-size:clamp(52px,16vw,78px)!important;
+  }
+  .assistant-copy strong{font-size:34px!important}
+}
+</style>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
@@ -934,7 +1158,7 @@ footer .logo{
         <div class="pill"><span></span> MAYISM / visual artist · ศิลปิน</div>
         <p class="kicker">MAYISM · Novel Cover Artist · Character Illustrator · Thailand</p>
         <h1>I draw<br><em>feelings.</em></h1>
-        <p class="hero-text">I create character-driven images where emotion, atmosphere and small details carry the story — from novel covers to visual moments that linger.</p>
+        <p class="hero-text">I build images around people and the feeling between them — letting expression, light and small details carry the story.</p>
         <div class="hero-actions">
           <a class="primary-btn" href="#work">Enter the gallery <span>↓</span></a>
           <a class="ghost-btn" href="#about">Meet the artist</a>
@@ -961,7 +1185,7 @@ footer .logo{
       <div class="section-tag">/ 01 — Studio note · บันทึกจากสตูดิโอ</div>
       <div>
         <h2>Soft colors.<br><em>Sharp feelings.</em></h2>
-        <p>I blend expressive character work with cinematic composition — balancing beauty, mood and the tiny details that make a scene memorable.</p>
+        <p>I’m drawn to the moment just before something is said — a glance, a gesture, a change in light. My work grows from those small emotional cues.</p>
       </div>
       <div class="mini-note"><span>✦</span><p>Thai artist<br><small>จากประเทศไทย</small></p></div>
     </section>
@@ -973,7 +1197,7 @@ footer .logo{
       </div>
 
       <div class="collection-block signature-block">
-        <div class="collection-heading"><span>01</span><div><h3>Signature works</h3><p>Five pieces I chose to introduce my work — a mix of character, atmosphere and visual storytelling.</p></div></div>
+        <div class="collection-heading"><span>01</span><div><h3>Signature works</h3><p>A small selection of images that stay close to the way I like to draw: character first, atmosphere close behind.</p></div></div>
         <div class="gallery digital-gallery">
           <button class="art-card" data-index="0"><div class="art-media"><img src="assets/art-01.jpg" alt="Digital novel cover illustration"></div><span class="card-label"><b>Between Worlds</b><small>Digital · Novel cover art</small></span></button>
           <button class="art-card" data-index="1"><div class="art-media"><img src="assets/art-04.jpg" alt="Digital scene illustration"></div><span class="card-label"><b>Quiet Tension</b><small>Digital · Scene illustration</small></span></button>
@@ -984,7 +1208,7 @@ footer .logo{
       </div>
 
       <div class="collection-block">
-        <div class="collection-heading"><span>02</span><div><h3>Digital works</h3><p>A wider look at my digital work — character art, cover illustrations and digital paintings.</p></div></div>
+        <div class="collection-heading"><span>02</span><div><h3>Digital works</h3><p>Digital pieces built around expression, composition and the quiet tension between a character and the world around them.</p></div></div>
         <div class="gallery digital-gallery">
           <button class="art-card" data-index="5"><div class="art-media"><img src="assets/art-03.jpg" alt="Digital character illustration"></div><span class="card-label"><b>Playground</b><small>Digital · Character art</small></span></button>
           <button class="art-card" data-index="6"><div class="art-media"><img src="assets/art-05.jpg" alt="Digital character portrait"></div><span class="card-label"><b>Monochrome Muse</b><small>Digital · Character portrait</small></span></button>
@@ -1000,7 +1224,7 @@ footer .logo{
       </div>
 
       <div class="collection-block traditional-block">
-        <div class="collection-heading"><span>03</span><div><h3>Traditional studies</h3><p>My hand-drawn work in graphite and charcoal — from studies and process work to finished pieces.</p></div></div>
+        <div class="collection-heading"><span>03</span><div><h3>Traditional studies</h3><p>Graphite and charcoal studies where gesture, shadow and imperfection are part of the image — not something to hide.</p></div></div>
         <div class="gallery traditional-gallery">
           <button class="art-card" data-index="15"><div class="art-media"><img src="assets/art-13.jpg" alt="Traditional graphite drawing on paper"></div><span class="card-label"><b>Graphite Gaze</b><small>Traditional · Graphite drawing</small></span></button>
           <button class="art-card" data-index="16"><div class="art-media"><img src="assets/art-17.jpg" alt="Traditional charcoal drawing on paper"></div><span class="card-label"><b>Charcoal Study</b><small>Traditional · Charcoal drawing</small></span></button>
@@ -1015,7 +1239,7 @@ footer .logo{
         <span class="section-tag">/ 03 — About me <span class="thai-inline">· ศิลปินไทย</span></span>
         <h2>Hi, I’m<br><em>Pheemwara.</em></h2>
         <p class="about-lead">I draw people, stories and feelings — with the small details that make an image feel alive.</p>
-        <p>I work under the name MAYISM, creating novel covers, character illustrations and visual studies with a focus on atmosphere, emotion and visual storytelling. My practice moves between digital illustration and traditional hand-drawn work, always with an eye for mood, character and detail.</p>
+        <p>I work under the name MAYISM, making novel covers, character illustrations and visual studies that begin with feeling. I move between digital painting and traditional drawing, following whatever the image needs — a softer edge, a stronger shadow, a quieter expression.</p>
         <div class="facts"><span><b>3+</b> years professional drafting</span><span><b>Digital</b> + traditional</span><span><b>Thailand</b> based artist</span></div>
       </div>
     </section>
@@ -1023,9 +1247,9 @@ footer .logo{
     <section class="services" id="services">
       <div class="section-head"><div><span class="section-tag">/ 04 — Practice · มาสร้างเรื่องราวด้วยกัน</span><h2>What I like<br><em>to make.</em></h2></div></div>
       <div class="service-grid">
-        <article><span>01</span><div><h3>Novel covers</h3><p>I create novel covers that capture the mood, characters and visual hook of your story in one memorable image.</p></div><b>↗</b></article>
-        <article><span>02</span><div><h3>Character art</h3><p>I create character art and intimate moments that communicate personality, emotion and relationships naturally.</p></div><b>↗</b></article>
-        <article><span>03</span><div><h3>Promotional art</h3><p>I create promotional visuals for launches, campaigns and social content with a consistent visual mood.</p></div><b>↗</b></article>
+        <article><span>01</span><div><h3>Novel covers</h3><p>I translate the emotional center of a story into a single image — building a cover around its characters, atmosphere and the feeling that should remain after the first glance.</p></div><b>↗</b></article>
+        <article><span>02</span><div><h3>Character art</h3><p>I like drawing the spaces between characters: the look that says too much, the distance between two people, the gesture that gives a personality away.</p></div><b>↗</b></article>
+        <article><span>03</span><div><h3>Promotional art</h3><p>For supporting visuals, I carry the same world beyond the main artwork — keeping the mood, character language and visual identity connected.</p></div><b>↗</b></article>
       </div>
     </section>
 
@@ -1082,8 +1306,8 @@ footer .logo{
       <div class="assistant-copy">
         <span>STUDIO ASSISTANT</span>
         <strong>PAKAAAT</strong>
-        <p>Creative director. Unpaid.</p>
-        <small>Works 0 hours · approves 100% · คุณแมว</small>
+        <p>Creative director. Paid in snacks.</p>
+        <small>Works 0 hours · rejects everything · คุณแมว</small>
       </div>
     </aside>
     <div class="creative-note-grid">
