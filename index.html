@@ -2680,11 +2680,238 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<style id="mayism-header-clean-v24">
+/* Clean final header: MAYISM occupies the empty left-side space. */
+header.header{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:clamp(28px,5vw,72px)!important;
+  padding:14px clamp(28px,5vw,72px)!important;
+  overflow:visible!important;
+}
+header.header .mayism-header-clean{
+  flex:0 0 auto!important;
+  display:block!important;
+  position:static!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  color:var(--ink)!important;
+  text-decoration:none!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(34px,3.4vw,50px)!important;
+  line-height:.8!important;
+  font-weight:800!important;
+  letter-spacing:-.09em!important;
+  white-space:nowrap!important;
+  z-index:100!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+header.header .mayism-header-clean span{
+  color:var(--hot)!important;
+  font-size:.42em!important;
+  margin-left:.04em!important;
+}
+header.header nav{
+  flex:0 0 auto!important;
+  min-width:0!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(18px,2.7vw,34px)!important;
+  overflow:visible!important;
+}
+header.header nav a{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+header.header .nav-cta{
+  flex:0 0 auto!important;
+}
+
+/* Remove the oversized decorative MAYISM that was sitting behind the hero. */
+.hero .hero-wordmark,
+.hero .giant-wordmark,
+.intro .hero-wordmark,
+.intro .giant-wordmark,
+.hero .mayism-wordmark,
+.intro .mayism-wordmark{
+  display:none!important;
+}
+
+@media(max-width:900px){
+  header.header{
+    gap:20px!important;
+    padding-left:22px!important;
+    padding-right:22px!important;
+  }
+  header.header .mayism-header-clean{font-size:34px!important;}
+  header.header nav{gap:15px!important;}
+}
+@media(max-width:700px){
+  header.header{
+    gap:14px!important;
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+  header.header .mayism-header-clean{font-size:30px!important;}
+  header.header nav{gap:11px!important;}
+}
+</style>
+
+
+<style id="mayism-notes-spacing-v25">
+/* Keep card copy clear of the bottom metadata label. */
+.note-card,
+.creative-note,
+.creative-notes .note,
+.note-grid > article{
+  box-sizing:border-box!important;
+}
+.note-card p,
+.creative-note p,
+.creative-notes .note p,
+.note-grid > article p{
+  margin-bottom:48px!important;
+}
+.note-card .note-tag,
+.creative-note .note-tag,
+.creative-notes .note .note-tag,
+.note-grid > article .note-tag{
+  line-height:1.15!important;
+  max-width:calc(100% - 24px)!important;
+}
+@media(max-width:700px){
+  .note-card p,
+  .creative-note p,
+  .creative-notes .note p,
+  .note-grid > article p{
+    margin-bottom:56px!important;
+  }
+}
+</style>
+
+
+<style id="mayism-header-final-v26">
+/* FINAL HEADER: MAYISM is the left-side brand; nav is the right-side group. */
+header.header{
+  position:fixed!important;
+  top:18px!important;
+  left:18px!important;
+  right:18px!important;
+  width:auto!important;
+  max-width:none!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:64px!important;
+  box-sizing:border-box!important;
+  transform:none!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:clamp(20px,4vw,56px)!important;
+  padding:10px 14px 10px 22px!important;
+  z-index:1000!important;
+  overflow:visible!important;
+}
+header.header .mayism-header-clean{
+  grid-column:1!important;
+  grid-row:1!important;
+  justify-self:start!important;
+  align-self:center!important;
+  display:inline-flex!important;
+  position:static!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  color:#f7edf2!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(32px,3.1vw,48px)!important;
+  line-height:.78!important;
+  font-weight:800!important;
+  letter-spacing:-.09em!important;
+  text-decoration:none!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+header.header .mayism-header-clean span{
+  color:#ff9bc3!important;
+  font-size:.42em!important;
+  margin-left:.04em!important;
+}
+header.header nav{
+  grid-column:2!important;
+  grid-row:1!important;
+  justify-self:end!important;
+  align-self:center!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(16px,2.5vw,32px)!important;
+  overflow:visible!important;
+}
+header.header nav a{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+header.header .nav-cta{
+  flex:0 0 auto!important;
+}
+header.header .menu-toggle{
+  grid-column:3!important;
+  grid-row:1!important;
+  margin:0!important;
+}
+
+/* The intro no longer owns a second MAYISM wordmark. */
+.intro-section .mayism-intro-mark{display:none!important;}
+
+@media(min-width:851px){
+  header.header .menu-toggle{display:none!important;}
+}
+@media(max-width:850px){
+  header.header{
+    left:12px!important;
+    right:12px!important;
+    top:10px!important;
+    padding:10px 12px 10px 18px!important;
+    gap:12px!important;
+  }
+  header.header .mayism-header-clean{font-size:31px!important;}
+  header.header nav{display:none!important;}
+}
+@media(max-width:600px){
+  header.header .mayism-header-clean{font-size:28px!important;}
+}
+</style>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
-  <header class="header">
-    <a class="header-logo-v19" href="#top" aria-label="MAYISM home">MAYISM<span>.</span></a>
+  <header class="header"><a class="mayism-header-clean" href="#top" aria-label="MAYISM home">MAYISM<span>.</span></a>
 <nav aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#about">Artist</a>
@@ -2693,7 +2920,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
     </nav>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
-  </header>
+</header>
 
   <main id="top">
     <section class="hero">
@@ -2725,8 +2952,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </section>
 
     <section class="intro-section">
-      <div class="mayism-intro-mark" aria-label="MAYISM">MAYISM<span>·</span></div>
-      <div class="section-tag">/ 01 — Studio note · บันทึกจากสตูดิโอ</div>
+<div class="section-tag">/ 01 — Studio note · บันทึกจากสตูดิโอ</div>
       <div>
         <h2>Soft colors.<br><em>Sharp feelings.</em></h2>
         <p>I’m drawn to the moment just before something is said — a glance, a gesture, a change in light. My work grows from those small emotional cues.</p>
