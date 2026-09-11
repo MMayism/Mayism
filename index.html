@@ -1,4 +1,4 @@
-<!doctype html>
+\<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -2056,51 +2056,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
 </style>
 
 
-<style id="mayism-header-logo-v18">
-/* Header wordmark: fills the intentional space before Work / Artist / Practice / More. */
-.header{
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-  gap:clamp(28px,4vw,64px)!important;
-}
-.header .header-logo-v18{
-  flex:0 0 auto!important;
-  display:inline-flex!important;
-  align-items:baseline!important;
-  color:var(--ink)!important;
-  text-decoration:none!important;
-  font-family:'Space Grotesk',sans-serif!important;
-  font-size:clamp(34px,3.6vw,52px)!important;
-  line-height:.78!important;
-  font-weight:800!important;
-  letter-spacing:-.09em!important;
-  text-transform:none!important;
-  white-space:nowrap!important;
-  transition:color .25s ease,transform .25s ease!important;
-}
-.header .header-logo-v18 span{
-  color:var(--hot)!important;
-  font-size:.42em!important;
-  margin-left:.05em!important;
-}
-.header .header-logo-v18:hover{
-  color:var(--hot)!important;
-  transform:translateY(-1px)!important;
-}
-.header nav{
-  flex:0 1 auto!important;
-  margin-left:auto!important;
-}
-@media(max-width:850px){
-  .header{gap:22px!important;}
-  .header .header-logo-v18{font-size:36px!important;}
-}
-@media(max-width:600px){
-  .header .header-logo-v18{font-size:31px!important;}
-  .header{gap:16px!important;}
-}
-</style>
+
 
 
 <style id="mayism-final-micro-interactions-v19">
@@ -2231,28 +2187,475 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
   }
 }
 </style>
-<script id="mayism-pakaaat-game-v19">
-(function(){
-  var btn=document.querySelector('.pakaaat-reveal');
-  var card=document.querySelector('#pakaaat-assistant');
-  var face=document.querySelector('#pakaaat-face');
-  if(!btn || !card || !face) return;
-  btn.addEventListener('click',function(){
-    var open=card.classList.toggle('pakaaat-open');
-    btn.setAttribute('aria-expanded',String(open));
-    face.setAttribute('aria-hidden',String(!open));
-    btn.querySelector('.pakaaat-reveal-label').textContent=open?'HIDE HIM':'CLICK HERE';
-    btn.querySelector('.pakaaat-reveal-sub').textContent=open?'creative director revealed ←':'meet the creative director →';
+
+
+
+<style id="mayism-header-logo-v19">
+/* Stable header: MAYISM on the left, navigation on the right. */
+.header{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  padding-left:clamp(22px,5vw,72px)!important;
+  padding-right:clamp(22px,5vw,72px)!important;
+  overflow:visible!important;
+}
+.header .header-logo-v19{
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:baseline!important;
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  color:var(--ink)!important;
+  text-decoration:none!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(32px,3.2vw,50px)!important;
+  line-height:.78!important;
+  font-weight:800!important;
+  letter-spacing:-.09em!important;
+  white-space:nowrap!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+.header .header-logo-v19 span{
+  color:var(--hot)!important;
+  font-size:.42em!important;
+  margin-left:.05em!important;
+}
+.header nav{
+  flex:0 1 auto!important;
+  min-width:0!important;
+  width:auto!important;
+  max-width:100%!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:clamp(18px,2.4vw,34px)!important;
+  overflow:visible!important;
+}
+.header nav a{
+  white-space:nowrap!important;
+}
+.header .nav-cta{
+  flex:0 0 auto!important;
+}
+
+/* Desktop: keep the logo visually anchored left without crowding the links. */
+@media(min-width:851px){
+  .header .header-logo-v19{margin-right:auto!important;}
+  .header nav{margin-left:auto!important;}
+}
+
+/* Mobile menu keeps the wordmark visible and prevents nav clipping. */
+@media(max-width:850px){
+  .header{
+    padding-left:20px!important;
+    padding-right:20px!important;
+    gap:16px!important;
+  }
+  .header .header-logo-v19{font-size:34px!important;}
+  .header nav{
+    gap:14px!important;
+  }
+}
+@media(max-width:600px){
+  .header .header-logo-v19{font-size:30px!important;}
+}
+</style>
+
+
+<style id="mayism-pakaaat-fix-v20">
+/* PAKAAAT easter egg — clean, clickable, and contained. */
+.studio-assistant{
+  position:relative!important;
+  overflow:visible!important;
+  box-sizing:border-box!important;
+}
+.studio-assistant .pakaaat-reveal{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  z-index:20!important;
+  width:auto!important;
+  min-width:150px!important;
+  max-width:calc(100% - 28px)!important;
+  box-sizing:border-box!important;
+  border:1px solid rgba(240,138,178,.62)!important;
+  background:rgba(26,18,24,.94)!important;
+  color:var(--hot)!important;
+  padding:9px 12px 8px!important;
+  cursor:pointer!important;
+  text-align:left!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  line-height:1!important;
+}
+.studio-assistant .pakaaat-reveal-label{
+  display:block!important;
+  white-space:nowrap!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  letter-spacing:.15em!important;
+}
+.studio-assistant .pakaaat-reveal-sub{
+  display:block!important;
+  white-space:nowrap!important;
+  margin-top:4px!important;
+  font-size:7px!important;
+  letter-spacing:.05em!important;
+  opacity:.72!important;
+  text-transform:none!important;
+}
+.studio-assistant .pakaaat-reveal:hover{
+  background:var(--hot)!important;
+  color:#170f14!important;
+  transform:translateY(-2px)!important;
+}
+
+/* Hidden state: no collapsed zero-width box fighting the grid. */
+.studio-assistant .assistant-photo{
+  display:none!important;
+  width:150px!important;
+  height:150px!important;
+  max-height:none!important;
+  opacity:0!important;
+  overflow:hidden!important;
+}
+.studio-assistant .assistant-photo img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  border-radius:2px!important;
+}
+.studio-assistant.pakaaat-open{
+  grid-template-columns:150px minmax(0,1fr)!important;
+}
+.studio-assistant.pakaaat-open .assistant-photo{
+  display:block!important;
+  opacity:1!important;
+  animation:pakaaat-pop .45s cubic-bezier(.2,.8,.2,1) both!important;
+}
+@keyframes pakaaat-pop{
+  from{opacity:0;transform:scale(.72) rotate(-5deg)}
+  to{opacity:1;transform:scale(1) rotate(0)}
+}
+.studio-assistant.pakaaat-open .pakaaat-reveal{
+  background:var(--hot)!important;
+  color:#170f14!important;
+}
+@media(max-width:850px){
+  .studio-assistant{
+    grid-template-columns:1fr!important;
+    padding-top:58px!important;
+  }
+  .studio-assistant.pakaaat-open{
+    grid-template-columns:1fr!important;
+  }
+  .studio-assistant .assistant-photo,
+  .studio-assistant.pakaaat-open .assistant-photo{
+    width:130px!important;
+    height:130px!important;
+    margin:0 auto 8px 0!important;
+  }
+}
+@media(max-width:520px){
+  .studio-assistant .pakaaat-reveal{
+    top:12px!important;
+    right:12px!important;
+    min-width:138px!important;
+  }
+  .studio-assistant{
+    padding-top:55px!important;
+  }
+}
+</style>
+
+
+
+
+<style id="mayism-final-header-pakaaat-v21">
+/* FINAL HEADER FIX — explicit grid so MAYISM cannot disappear or be squeezed out. */
+header.header{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:72px!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr auto!important;
+  align-items:center!important;
+  column-gap:clamp(22px,4vw,60px)!important;
+  padding:14px clamp(22px,5vw,72px)!important;
+  overflow:visible!important;
+}
+header.header > .header-logo-v19,
+header.header > .header-logo-v18,
+header.header > .logo{
+  grid-column:1!important;
+  grid-row:1!important;
+  position:static!important;
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  color:var(--ink)!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(34px,3.4vw,50px)!important;
+  font-weight:800!important;
+  line-height:.78!important;
+  letter-spacing:-.09em!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+  z-index:50!important;
+}
+header.header > .header-logo-v19 span,
+header.header > .header-logo-v18 span,
+header.header > .logo .dot{
+  color:var(--hot)!important;
+  font-size:.42em!important;
+  margin-left:.05em!important;
+}
+header.header > nav{
+  grid-column:2 / 4!important;
+  grid-row:1!important;
+  justify-self:end!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(18px,2.6vw,34px)!important;
+  width:max-content!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+header.header > nav a{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+header.header .nav-cta{
+  flex:0 0 auto!important;
+}
+
+/* PAKAAAT: use feminine wording everywhere in the interactive control. */
+.studio-assistant .pakaaat-reveal-sub{
+  text-transform:none!important;
+}
+@media(max-width:850px){
+  header.header{
+    grid-template-columns:auto 1fr auto!important;
+    column-gap:14px!important;
+    padding:12px 20px!important;
+  }
+  header.header > .header-logo-v19,
+  header.header > .header-logo-v18,
+  header.header > .logo{
+    font-size:32px!important;
+  }
+}
+@media(max-width:600px){
+  header.header{
+    column-gap:10px!important;
+  }
+  header.header > .header-logo-v19,
+  header.header > .header-logo-v18,
+  header.header > .logo{
+    font-size:29px!important;
+  }
+}
+</style>
+
+
+
+
+<style id="mayism-pakaaat-final-v22">
+/* PAKAAAT — reveal is driven by the button's aria-expanded state only. */
+#pakaaat-assistant{
+  position:relative!important;
+  overflow:visible!important;
+}
+#pakaaat-assistant .pakaaat-reveal{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  z-index:30!important;
+  box-sizing:border-box!important;
+  min-width:150px!important;
+  max-width:calc(100% - 28px)!important;
+  border:1px solid rgba(240,138,178,.65)!important;
+  background:rgba(26,18,24,.96)!important;
+  color:var(--hot)!important;
+  padding:9px 12px 8px!important;
+  cursor:pointer!important;
+  text-align:left!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  line-height:1!important;
+}
+#pakaaat-assistant .pakaaat-reveal-label{
+  display:block!important;
+  white-space:nowrap!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  letter-spacing:.15em!important;
+}
+#pakaaat-assistant .pakaaat-reveal-sub{
+  display:block!important;
+  white-space:nowrap!important;
+  margin-top:4px!important;
+  font-size:7px!important;
+  letter-spacing:.05em!important;
+  opacity:.72!important;
+}
+#pakaaat-assistant .assistant-photo{
+  display:block!important;
+  width:150px!important;
+  height:150px!important;
+  max-height:150px!important;
+  overflow:hidden!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:scale(.72) rotate(-5deg)!important;
+  transition:opacity .35s ease,transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s linear .4s!important;
+}
+#pakaaat-assistant .assistant-photo img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+#pakaaat-assistant .assistant-photo[aria-hidden="false"]{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:scale(1) rotate(-2deg)!important;
+  transition:opacity .35s ease,transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s!important;
+}
+#pakaaat-assistant .pakaaat-reveal[aria-expanded="true"]{
+  background:var(--hot)!important;
+  color:#170f14!important;
+}
+@media(max-width:850px){
+  #pakaaat-assistant .pakaaat-reveal{
+    top:12px!important;
+    right:12px!important;
+    min-width:140px!important;
+  }
+  #pakaaat-assistant .assistant-photo{
+    width:120px!important;
+    height:120px!important;
+  }
+}
+@media(max-width:600px){
+  #pakaaat-assistant .pakaaat-reveal{
+    min-width:132px!important;
+  }
+  #pakaaat-assistant .assistant-photo{
+    width:100px!important;
+    height:100px!important;
+  }
+}
+</style>
+
+<script id="mayism-pakaaat-final-v23">
+document.addEventListener('DOMContentLoaded', function () {
+  const card = document.getElementById('pakaaat-assistant');
+  if (!card) return;
+
+  const button = card.querySelector('.pakaaat-reveal');
+  const face = card.querySelector('#pakaaat-face');
+  const label = card.querySelector('.pakaaat-reveal-label');
+  const sub = card.querySelector('.pakaaat-reveal-sub');
+  if (!button || !face) return;
+
+  function playMeow() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+
+      const ctx = new AudioCtx();
+      const now = ctx.currentTime;
+
+      // Short, playful synthesized "meow" — no external audio file required.
+      const master = ctx.createGain();
+      master.gain.setValueAtTime(0.0001, now);
+      master.gain.exponentialRampToValueAtTime(0.16, now + 0.035);
+      master.gain.exponentialRampToValueAtTime(0.075, now + 0.20);
+      master.gain.exponentialRampToValueAtTime(0.0001, now + 0.58);
+      master.connect(ctx.destination);
+
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(470, now);
+      osc.frequency.exponentialRampToValueAtTime(760, now + 0.13);
+      osc.frequency.exponentialRampToValueAtTime(430, now + 0.52);
+      osc.connect(master);
+      osc.start(now);
+      osc.stop(now + 0.60);
+
+      const harmonic = ctx.createOscillator();
+      harmonic.type = 'triangle';
+      harmonic.frequency.setValueAtTime(940, now);
+      harmonic.frequency.exponentialRampToValueAtTime(1500, now + 0.13);
+      harmonic.frequency.exponentialRampToValueAtTime(860, now + 0.52);
+
+      const harmonicGain = ctx.createGain();
+      harmonicGain.gain.setValueAtTime(0.0001, now);
+      harmonicGain.gain.exponentialRampToValueAtTime(0.035, now + 0.04);
+      harmonicGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+
+      harmonic.connect(harmonicGain);
+      harmonicGain.connect(ctx.destination);
+      harmonic.start(now);
+      harmonic.stop(now + 0.58);
+
+      setTimeout(() => {
+        if (ctx.state !== 'closed') ctx.close();
+      }, 750);
+    } catch (e) {
+      // Audio is a playful enhancement; the reveal still works if audio is unavailable.
+    }
+  }
+
+  function setPakaaat(open) {
+    button.setAttribute('aria-expanded', String(open));
+    face.setAttribute('aria-hidden', String(!open));
+
+    if (label) label.textContent = open ? 'HIDE HER' : 'CLICK HERE';
+    if (sub) sub.textContent = open
+      ? 'creative director revealed ←'
+      : 'meet the creative director →';
+
+    if (open) playMeow();
+  }
+
+  // Guaranteed initial state: hidden + CLICK HERE.
+  setPakaaat(false);
+
+  button.addEventListener('click', function () {
+    setPakaaat(button.getAttribute('aria-expanded') !== 'true');
   });
-})();
+});
 </script>
 
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <header class="header">
-    <a class="header-logo-v18" href="#top" aria-label="MAYISM home">MAYISM<span>.</span></a>
-
+    <a class="header-logo-v19" href="#top" aria-label="MAYISM home">MAYISM<span>.</span></a>
 <nav aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#about">Artist</a>
