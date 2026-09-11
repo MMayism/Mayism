@@ -2102,6 +2102,151 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
 }
 </style>
 
+
+<style id="mayism-final-micro-interactions-v19">
+/* HEADER — force the MAYISM wordmark into the empty left side. */
+@media(min-width:851px){
+  .header{
+    position:fixed!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:64px!important;
+  }
+  .header .header-logo-v18{
+    position:absolute!important;
+    left:28px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    z-index:3!important;
+  }
+  .header .header-logo-v18:hover{
+    transform:translateY(-50%) scale(1.01)!important;
+  }
+  .header nav{
+    margin-left:0!important;
+    position:relative!important;
+    z-index:2!important;
+  }
+}
+
+/* MADE WITH LOVE — controlled line break so the seal never produces "madewit / hlove". */
+.hero-visual .sticker{
+  overflow:visible!important;
+}
+.hero-visual .sticker b{
+  display:block!important;
+  width:100%!important;
+  white-space:normal!important;
+  text-align:center!important;
+  font-size:30px!important;
+  line-height:.78!important;
+}
+.hero-visual .sticker b br{
+  display:block!important;
+  content:""!important;
+}
+.hero-visual .sticker b:after{
+  white-space:nowrap!important;
+}
+
+/* PAKAAAT — tiny interactive easter egg. */
+.studio-assistant{
+  position:relative!important;
+}
+.pakaaat-reveal{
+  position:absolute!important;
+  top:-16px!important;
+  right:18px!important;
+  z-index:5!important;
+  border:1px solid rgba(240,138,178,.65)!important;
+  background:var(--paper2,#1a1218)!important;
+  color:var(--hot)!important;
+  padding:9px 13px 8px!important;
+  cursor:pointer!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  text-transform:uppercase!important;
+  text-align:left!important;
+  transition:transform .25s ease,background .25s ease,color .25s ease!important;
+}
+.pakaaat-reveal:hover{
+  transform:translateY(-2px) rotate(-1deg)!important;
+  background:var(--hot)!important;
+  color:#170f14!important;
+}
+.pakaaat-reveal-label{
+  display:block!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  letter-spacing:.16em!important;
+}
+.pakaaat-reveal-sub{
+  display:block!important;
+  margin-top:3px!important;
+  font-size:7px!important;
+  letter-spacing:.06em!important;
+  opacity:.72!important;
+  text-transform:none!important;
+}
+.studio-assistant .assistant-photo{
+  max-height:0!important;
+  height:0!important;
+  width:0!important;
+  overflow:hidden!important;
+  opacity:0!important;
+  transform:scale(.7) rotate(-6deg)!important;
+  transition:max-height .5s ease,width .5s ease,height .5s ease,opacity .4s ease,transform .5s cubic-bezier(.2,.8,.2,1)!important;
+}
+.studio-assistant .assistant-photo img{
+  display:block!important;
+}
+.studio-assistant.pakaaat-open .assistant-photo{
+  width:150px!important;
+  height:150px!important;
+  max-height:150px!important;
+  opacity:1!important;
+  overflow:visible!important;
+  transform:scale(1) rotate(-2deg)!important;
+}
+.studio-assistant.pakaaat-open .pakaaat-reveal{
+  background:var(--hot)!important;
+  color:#170f14!important;
+}
+.studio-assistant.pakaaat-open .pakaaat-reveal-sub{
+  opacity:.9!important;
+}
+@media(max-width:850px){
+  .pakaaat-reveal{
+    top:-13px!important;
+    right:10px!important;
+  }
+  .studio-assistant{
+    grid-template-columns:1fr!important;
+    padding-top:48px!important;
+  }
+  .studio-assistant.pakaaat-open .assistant-photo{
+    width:130px!important;
+    height:130px!important;
+    max-height:130px!important;
+  }
+}
+</style>
+<script id="mayism-pakaaat-game-v19">
+(function(){
+  var btn=document.querySelector('.pakaaat-reveal');
+  var card=document.querySelector('#pakaaat-assistant');
+  var face=document.querySelector('#pakaaat-face');
+  if(!btn || !card || !face) return;
+  btn.addEventListener('click',function(){
+    var open=card.classList.toggle('pakaaat-open');
+    btn.setAttribute('aria-expanded',String(open));
+    face.setAttribute('aria-hidden',String(!open));
+    btn.querySelector('.pakaaat-reveal-label').textContent=open?'HIDE HIM':'CLICK HERE';
+    btn.querySelector('.pakaaat-reveal-sub').textContent=open?'creative director revealed ←':'meet the creative director →';
+  });
+})();
+</script>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
@@ -2139,7 +2284,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
           <div><strong>Pheemwara</strong><span>MAYISM · Artist</span></div>
           <span class="arrow">↗</span>
         </div>
-        <div class="sticker"><span>ศิลปินไทย</span><b>made<br>with<br>love</b></div>
+        <div class="sticker"><span>ศิลปินไทย</span><b>made with<br>love</b></div>
       </div>
     </section>
 
@@ -2266,8 +2411,12 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
       <h2>Curious by nature.<br><em>Flexible by design.</em></h2>
       <p>A little glimpse beyond my portfolio — the interests and habits that keep me curious, adaptable and open to new visual directions.</p>
     </div>
-    <aside class="studio-assistant">
-      <div class="assistant-photo">
+    <aside class="studio-assistant" id="pakaaat-assistant">
+      <button class="pakaaat-reveal" type="button" aria-expanded="false" aria-controls="pakaaat-face">
+        <span class="pakaaat-reveal-label">CLICK HERE</span>
+        <span class="pakaaat-reveal-sub">meet the creative director →</span>
+      </button>
+      <div class="assistant-photo" id="pakaaat-face" aria-hidden="true">
         <img src="assets/studio-cat.png" alt="PAKAAAT, MAYISM's studio cat">
       </div>
       <div class="assistant-copy">
