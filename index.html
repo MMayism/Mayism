@@ -1404,6 +1404,458 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
 }
 </style>
 
+
+<style id="mayism-index-art-direction-v15">
+/* =========================================================
+   V15 — FIX THE ACTUAL VISUAL ISSUES SEEN IN THE SCREENSHOTS
+   INDEX.HTML ONLY
+   ========================================================= */
+
+/* 01 — Keep the floating header from covering anchored sections. */
+#work,#about,#services,#contact,#technical,#creative-notes{
+  scroll-margin-top:120px!important;
+}
+
+/* 02 — INTRO gets a real MAYISM editorial header. */
+.intro-section{
+  position:relative!important;
+  isolation:isolate!important;
+}
+.mayism-intro-mark{
+  position:absolute!important;
+  top:clamp(34px,5vw,70px)!important;
+  left:clamp(22px,6vw,86px)!important;
+  z-index:3!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(28px,3.8vw,56px)!important;
+  line-height:.8!important;
+  font-weight:800!important;
+  letter-spacing:-.085em!important;
+  color:#fff!important;
+}
+.mayism-intro-mark span{
+  color:#ff9bc3!important;
+  font-size:.45em!important;
+  margin-left:.08em!important;
+}
+
+/* Give the intro content breathing room below the new mark. */
+@media(min-width:851px){
+  .intro-section{
+    padding-top:clamp(150px,17vh,220px)!important;
+  }
+}
+
+/* 03 — ART TITLES: not default UI typography anymore. */
+.card-label b,
+.collection-heading h3,
+.service-grid h3,
+.creative-note-card h3,
+.technical-facts strong{
+  font-family:'Cormorant Garamond',serif!important;
+  font-weight:500!important;
+  letter-spacing:-.025em!important;
+}
+.card-label b{
+  font-size:clamp(20px,1.65vw,28px)!important;
+  line-height:.95!important;
+}
+.card-label small{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:8px!important;
+  font-weight:600!important;
+  letter-spacing:.15em!important;
+}
+
+/* 04 — SIGNATURE GALLERY: remove the huge dead spaces.
+   Equal rhythm, still editorial, no random vertical drift. */
+@media(min-width:851px){
+  .signature-block .gallery{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:54px 24px!important;
+    align-items:start!important;
+  }
+  .signature-block .gallery .art-card,
+  .signature-block .gallery .art-card:nth-child(n){
+    grid-column:auto!important;
+    margin:0!important;
+    transform:none!important;
+    width:100%!important;
+  }
+  .signature-block .gallery .art-card:nth-child(1){
+    grid-column:span 2!important;
+  }
+  .signature-block .gallery .art-card:nth-child(2){
+    margin-top:46px!important;
+  }
+  .signature-block .gallery .art-card:nth-child(4){
+    margin-top:34px!important;
+  }
+  .signature-block .gallery .art-card:nth-child(5){
+    margin-top:-4px!important;
+  }
+
+  /* Digital archive: compact 4-column rhythm, no giant gaps. */
+  .collection-block:not(.signature-block) .gallery{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:46px 22px!important;
+    align-items:start!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card,
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(n){
+    grid-column:auto!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(2),
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(6),
+  .collection-block:not(.signature-block) .gallery .art-card:nth-child(10){
+    transform:translateY(22px)!important;
+  }
+}
+
+/* Traditional: close the oversized blank section caused by offset cards. */
+.traditional-block{
+  padding-bottom:72px!important;
+}
+@media(min-width:851px){
+  .traditional-gallery{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:28px!important;
+    align-items:start!important;
+  }
+  .traditional-gallery .art-card,
+  .traditional-gallery .art-card:nth-child(n){
+    transform:none!important;
+    margin:0!important;
+    width:100%!important;
+  }
+}
+
+/* 05 — ARCHITECTURE FACTS: dark, premium cards instead of pale boxes. */
+.technical-facts{
+  gap:18px!important;
+}
+.technical-facts>div{
+  background:linear-gradient(145deg,#241823,#171017)!important;
+  border:1px solid rgba(240,138,178,.22)!important;
+  border-top:1px solid rgba(240,138,178,.42)!important;
+  border-radius:2px!important;
+  padding:25px 24px 27px!important;
+  min-height:180px!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.03),0 16px 35px rgba(0,0,0,.18)!important;
+}
+.technical-facts span{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:9px!important;
+  font-weight:700!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+}
+.technical-facts strong{
+  font-size:clamp(25px,2.1vw,34px)!important;
+  line-height:.96!important;
+  color:#fff!important;
+  margin:15px 0 12px!important;
+}
+.technical-facts small{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:11px!important;
+  line-height:1.55!important;
+  color:rgba(247,237,242,.62)!important;
+}
+
+/* 06 — SOCIAL LINKS: one clean row on desktop. */
+.social-links{
+  max-width:920px!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+  align-items:stretch!important;
+}
+.social-intro{
+  grid-column:1/-1!important;
+  justify-self:center!important;
+  margin:0 0 8px!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:9px!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+  letter-spacing:.2em!important;
+  color:rgba(255,255,255,.55)!important;
+}
+.social-btn{
+  min-width:0!important;
+  min-height:54px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  padding:12px 15px!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  letter-spacing:.08em!important;
+  text-align:center!important;
+}
+
+/* 07 — THE ABOUT "HELLO THERE" SEAL: designed, not plain text. */
+.photo-sticker{
+  width:108px!important;
+  height:108px!important;
+  padding:14px!important;
+  border-radius:50%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:25px!important;
+  font-weight:500!important;
+  line-height:.78!important;
+  letter-spacing:-.025em!important;
+  text-align:center!important;
+  border:1px solid rgba(255,255,255,.7)!important;
+  outline:1px solid rgba(240,138,178,.35)!important;
+  outline-offset:5px!important;
+}
+.photo-sticker:before{
+  content:"MAYISM · ARTIST";
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:6px!important;
+  font-weight:700!important;
+  letter-spacing:.16em!important;
+  opacity:.7!important;
+  margin-bottom:3px!important;
+}
+.photo-sticker:after{
+  content:"✦  /  2026";
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:6px!important;
+  font-weight:700!important;
+  letter-spacing:.12em!important;
+  margin-top:5px!important;
+  opacity:.7!important;
+}
+.photo-sticker br{display:none!important;}
+
+/* 08 — HERO CIRCLE: maximize "made with love" inside the seal. */
+.sticker{
+  width:128px!important;
+  height:128px!important;
+  padding:15px!important;
+  border-radius:50%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:4px!important;
+  text-align:center!important;
+  overflow:hidden!important;
+}
+.sticker:before{
+  content:"MAYISM  ·  ศิลปินไทย"!important;
+  font-family:'Space Grotesk','Noto Sans Thai',sans-serif!important;
+  font-size:7px!important;
+  font-weight:700!important;
+  letter-spacing:.13em!important;
+  margin:0 0 5px!important;
+  opacity:.72!important;
+}
+.sticker span{
+  font-family:'Noto Sans Thai','Space Grotesk',sans-serif!important;
+  font-size:8px!important;
+  font-weight:600!important;
+  letter-spacing:.1em!important;
+  margin:0!important;
+  opacity:.8!important;
+}
+.sticker b{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:29px!important;
+  font-weight:500!important;
+  line-height:.76!important;
+  letter-spacing:-.02em!important;
+  margin:0!important;
+}
+.sticker b:after{
+  content:"✦"!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:8px!important;
+  display:block!important;
+  margin-top:7px!important;
+  opacity:.6!important;
+}
+
+/* 09 — PAKAAAT: force it back into normal document flow so it cannot overlap
+   the third creative-note card or float into the header. */
+.studio-assistant{
+  position:relative!important;
+  inset:auto!important;
+  float:none!important;
+  width:min(100%,720px)!important;
+  max-width:720px!important;
+  margin:58px 0 48px auto!important;
+  display:grid!important;
+  grid-template-columns:150px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:24px!important;
+  transform:rotate(-1.2deg)!important;
+}
+.assistant-photo{
+  width:150px!important;
+  height:150px!important;
+}
+.assistant-photo img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+.assistant-copy strong{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:clamp(34px,4vw,54px)!important;
+  line-height:.8!important;
+  letter-spacing:-.025em!important;
+}
+.assistant-copy p{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:12px!important;
+  line-height:1.45!important;
+  margin:9px 0 6px!important;
+}
+.assistant-copy span{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  letter-spacing:.2em!important;
+}
+.assistant-copy small{
+  font-family:'Noto Sans Thai','Space Grotesk',sans-serif!important;
+  font-size:8px!important;
+  letter-spacing:.1em!important;
+}
+
+/* 10 — Creative notes: clean three-card rhythm. */
+@media(min-width:851px){
+  .creative-note-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:22px!important;
+    align-items:stretch!important;
+  }
+  .creative-note-card,
+  .creative-note-card:nth-child(2),
+  .creative-note-card:nth-child(3){
+    margin:0!important;
+    transform:none!important;
+    min-height:310px!important;
+  }
+}
+.creative-note-card h3{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:clamp(25px,2.2vw,35px)!important;
+  line-height:.95!important;
+  font-weight:500!important;
+  letter-spacing:-.025em!important;
+}
+.creative-note-card p{
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+
+/* 11 — FINAL DESKTOP EDGE PROTECTION. */
+@media(min-width:851px){
+  .work,.technical,.creative-notes{
+    overflow:visible!important;
+  }
+  .gallery .art-card,
+  .technical-facts>div,
+  .creative-note-card,
+  .studio-assistant{
+    min-width:0!important;
+  }
+}
+
+/* Tablet / phone: preserve the fixes without forcing desktop layout. */
+@media(max-width:850px){
+  .mayism-intro-mark{
+    top:34px!important;
+    left:22px!important;
+    font-size:34px!important;
+  }
+  .intro-section{
+    padding-top:125px!important;
+  }
+  .social-links{
+    grid-template-columns:1fr!important;
+  }
+  .social-intro{grid-column:auto!important;}
+  .studio-assistant{
+    width:100%!important;
+    max-width:100%!important;
+    margin:40px 0!important;
+    grid-template-columns:105px minmax(0,1fr)!important;
+    gap:16px!important;
+  }
+  .assistant-photo{
+    width:105px!important;
+    height:105px!important;
+  }
+  .sticker{
+    width:88px!important;
+    height:88px!important;
+  }
+  .photo-sticker{
+    width:84px!important;
+    height:84px!important;
+    font-size:19px!important;
+  }
+}
+@media(max-width:600px){
+  .mayism-intro-mark{font-size:32px!important;}
+  .card-label b{font-size:23px!important;}
+  .social-btn{min-height:52px!important;}
+  .studio-assistant{
+    grid-template-columns:88px minmax(0,1fr)!important;
+  }
+  .assistant-photo{width:88px!important;height:88px!important;}
+  .assistant-copy strong{font-size:34px!important;}
+}
+</style>
+
+
+<style id="mayism-seal-final-v16">
+.sticker b{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:27px!important;
+  line-height:.68!important;
+  font-weight:500!important;
+  text-transform:lowercase!important;
+  letter-spacing:-.02em!important;
+}
+.sticker b:after{
+  content:"♡  MAYISM"!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:6px!important;
+  line-height:1!important;
+  letter-spacing:.16em!important;
+  margin-top:8px!important;
+  opacity:.7!important;
+}
+.photo-sticker{
+  font-family:'Cormorant Garamond',serif!important;
+  font-style:italic!important;
+  font-weight:500!important;
+  font-size:27px!important;
+  line-height:.72!important;
+}
+</style>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
@@ -1440,7 +1892,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
           <div><strong>Pheemwara</strong><span>MAYISM · Artist</span></div>
           <span class="arrow">↗</span>
         </div>
-        <div class="sticker"><span>ศิลปินไทย</span><b>made<br>with<br>♡</b></div>
+        <div class="sticker"><span>ศิลปินไทย</span><b>made<br>with<br>love</b></div>
       </div>
     </section>
 
@@ -1449,6 +1901,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
     </section>
 
     <section class="intro-section">
+      <div class="mayism-intro-mark" aria-label="MAYISM">MAYISM<span>·</span></div>
       <div class="section-tag">/ 01 — Studio note · บันทึกจากสตูดิโอ</div>
       <div>
         <h2>Soft colors.<br><em>Sharp feelings.</em></h2>
@@ -1501,7 +1954,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
     </section>
 
     <section class="about" id="about">
-      <div class="about-photo"><img src="assets/profile-circle.png" alt="Pheemwara Choymuang, MAYISM artist"><span class="photo-sticker">hello<br>there ✦</span></div>
+      <div class="about-photo"><img src="assets/profile-circle.png" alt="Pheemwara Choymuang, MAYISM artist"><span class="photo-sticker">hello<br>there</span></div>
       <div class="about-copy">
         <span class="section-tag">/ 03 — About me <span class="thai-inline">· ศิลปินไทย</span></span>
         <h2>Hi, I’m<br><em>Pheemwara.</em></h2>
