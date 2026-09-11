@@ -1856,12 +1856,259 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
 }
 </style>
 
+
+<style id="mayism-artist-identity-v17">
+/* MAYISM identity + bespoke artist marks. Index.html only. */
+
+/* Intro: make the MAYISM header unmistakable and stable. */
+.intro-section .mayism-intro-mark{
+  position:absolute!important;
+  top:clamp(34px,4vw,58px)!important;
+  left:clamp(24px,6vw,84px)!important;
+  z-index:5!important;
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  color:var(--ink)!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(30px,4.2vw,62px)!important;
+  font-weight:800!important;
+  line-height:.78!important;
+  letter-spacing:-.09em!important;
+  text-transform:none!important;
+}
+.intro-section .mayism-intro-mark span{
+  color:var(--hot)!important;
+  font-size:.42em!important;
+  margin-left:.06em!important;
+}
+
+/* Replace the generic Thai Artist rectangle with an editorial paper-label composition. */
+.intro-section .mini-note{
+  position:relative!important;
+  width:190px!important;
+  min-height:118px!important;
+  padding:20px 20px 18px 28px!important;
+  border:0!important;
+  border-left:2px solid var(--hot)!important;
+  background:linear-gradient(135deg,rgba(240,138,178,.98),rgba(207,82,132,.9))!important;
+  color:#190f15!important;
+  transform:rotate(-3.5deg)!important;
+  box-shadow:10px 10px 0 rgba(240,138,178,.22)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  overflow:visible!important;
+}
+.intro-section .mini-note:before{
+  content:"MAYISM / 01";
+  position:absolute!important;
+  top:12px!important;
+  right:14px!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.18em!important;
+  color:rgba(25,15,21,.62)!important;
+}
+.intro-section .mini-note:after{
+  content:"THAILAND";
+  position:absolute!important;
+  bottom:-18px!important;
+  left:28px!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.22em!important;
+  color:var(--hot)!important;
+}
+.intro-section .mini-note > span{
+  position:absolute!important;
+  left:-10px!important;
+  top:18px!important;
+  width:24px!important;
+  height:24px!important;
+  border:1px solid rgba(25,15,21,.65)!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  background:var(--pink)!important;
+  color:#190f15!important;
+  font-size:11px!important;
+}
+.intro-section .mini-note p{
+  margin:0!important;
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:31px!important;
+  font-weight:500!important;
+  line-height:.82!important;
+  letter-spacing:-.035em!important;
+  text-transform:uppercase!important;
+}
+.intro-section .mini-note small{
+  display:block!important;
+  margin-top:9px!important;
+  font-family:'Noto Sans Thai','Space Grotesk',sans-serif!important;
+  font-size:10px!important;
+  font-weight:600!important;
+  letter-spacing:.08em!important;
+  line-height:1.2!important;
+  color:rgba(25,15,21,.7)!important;
+}
+
+/* Redesign "made with love" as an irregular artist seal — not a basic circle. */
+.hero-visual .sticker{
+  width:158px!important;
+  height:126px!important;
+  padding:18px 17px!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  border-radius:43% 57% 48% 52% / 57% 42% 58% 43%!important;
+  background:linear-gradient(145deg,#f493bb 0%,#df6f9f 100%)!important;
+  color:#170d13!important;
+  box-shadow:10px 12px 0 rgba(240,138,178,.18),0 18px 35px rgba(0,0,0,.18)!important;
+  transform:rotate(7deg)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+}
+.hero-visual .sticker:before{
+  content:"MAYISM  ·  ศิลปินไทย"!important;
+  position:static!important;
+  font-family:'Space Grotesk','Noto Sans Thai',sans-serif!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.15em!important;
+  line-height:1!important;
+  margin:0 0 8px!important;
+  opacity:.68!important;
+}
+.hero-visual .sticker span{
+  display:none!important;
+}
+.hero-visual .sticker b{
+  font-family:'Cormorant Garamond',serif!important;
+  font-size:36px!important;
+  font-weight:500!important;
+  line-height:.76!important;
+  letter-spacing:-.045em!important;
+  text-transform:lowercase!important;
+  text-align:center!important;
+  margin:0!important;
+}
+.hero-visual .sticker b br{
+  display:none!important;
+}
+.hero-visual .sticker b:after{
+  content:"♡  DRAWN WITH FEELING"!important;
+  display:block!important;
+  margin-top:10px!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:6px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:.16em!important;
+  opacity:.65!important;
+}
+
+/* Keep the new marks elegant on smaller screens. */
+@media(max-width:850px){
+  .intro-section .mayism-intro-mark{
+    top:28px!important;
+    left:22px!important;
+    font-size:34px!important;
+  }
+  .intro-section .mini-note{
+    width:170px!important;
+    min-height:105px!important;
+  }
+  .hero-visual .sticker{
+    width:132px!important;
+    height:108px!important;
+  }
+  .hero-visual .sticker b{
+    font-size:31px!important;
+  }
+}
+@media(max-width:600px){
+  .intro-section .mayism-intro-mark{
+    font-size:32px!important;
+  }
+  .intro-section .mini-note{
+    width:155px!important;
+    min-height:98px!important;
+    padding-left:23px!important;
+  }
+  .intro-section .mini-note p{
+    font-size:26px!important;
+  }
+  .hero-visual .sticker{
+    width:118px!important;
+    height:98px!important;
+    padding:14px!important;
+  }
+  .hero-visual .sticker b{
+    font-size:28px!important;
+  }
+}
+</style>
+
+
+<style id="mayism-header-logo-v18">
+/* Header wordmark: fills the intentional space before Work / Artist / Practice / More. */
+.header{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:clamp(28px,4vw,64px)!important;
+}
+.header .header-logo-v18{
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:baseline!important;
+  color:var(--ink)!important;
+  text-decoration:none!important;
+  font-family:'Space Grotesk',sans-serif!important;
+  font-size:clamp(34px,3.6vw,52px)!important;
+  line-height:.78!important;
+  font-weight:800!important;
+  letter-spacing:-.09em!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+  transition:color .25s ease,transform .25s ease!important;
+}
+.header .header-logo-v18 span{
+  color:var(--hot)!important;
+  font-size:.42em!important;
+  margin-left:.05em!important;
+}
+.header .header-logo-v18:hover{
+  color:var(--hot)!important;
+  transform:translateY(-1px)!important;
+}
+.header nav{
+  flex:0 1 auto!important;
+  margin-left:auto!important;
+}
+@media(max-width:850px){
+  .header{gap:22px!important;}
+  .header .header-logo-v18{font-size:36px!important;}
+}
+@media(max-width:600px){
+  .header .header-logo-v18{font-size:31px!important;}
+  .header{gap:16px!important;}
+}
+</style>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <header class="header">
-    <a class="logo" href="#top" aria-label="Mayism home">Mayism<span class="dot">●</span></a>
-    <nav aria-label="Main navigation">
+    <a class="header-logo-v18" href="#top" aria-label="MAYISM home">MAYISM<span>.</span></a>
+
+<nav aria-label="Main navigation">
       <a href="#work">Work</a>
       <a href="#about">Artist</a>
       <a href="#services">Practice</a>
@@ -1959,7 +2206,7 @@ footer p,footer>a:last-child{color:rgba(255,255,255,.62)!important}
         <span class="section-tag">/ 03 — About me <span class="thai-inline">· ศิลปินไทย</span></span>
         <h2>Hi, I’m<br><em>Pheemwara.</em></h2>
         <p class="about-lead">I draw people, stories and feelings — with the small details that make an image feel alive.</p>
-        <p>I work under the name MAYISM, making novel covers, character illustrations and visual studies that begin with feeling. I move between digital painting and traditional drawing, following whatever the image needs — a softer edge, a stronger shadow, a quieter expression.</p>
+        <p>I’m MAYISM — my artist name — creating novel covers, character illustrations and visual studies that begin with feeling. I move between digital painting and traditional drawing, following whatever the image needs — a softer edge, a stronger shadow, a quieter expression.</p>
         <div class="facts"><span><b>3+</b> years professional drafting</span><span><b>Digital</b> + traditional</span><span><b>Thailand</b> based artist</span></div>
       </div>
     </section>
