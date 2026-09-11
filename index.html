@@ -1,4 +1,4 @@
-\<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -2588,45 +2588,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const ctx = new AudioCtx();
       const now = ctx.currentTime;
+      const duration = 0.72;
 
-      // Short, playful synthesized "meow" — no external audio file required.
+      // Cat-like synthesized meow: a rising "mrr-ow" with a soft vocal formant.
       const master = ctx.createGain();
       master.gain.setValueAtTime(0.0001, now);
-      master.gain.exponentialRampToValueAtTime(0.16, now + 0.035);
-      master.gain.exponentialRampToValueAtTime(0.075, now + 0.20);
-      master.gain.exponentialRampToValueAtTime(0.0001, now + 0.58);
+      master.gain.exponentialRampToValueAtTime(0.18, now + 0.045);
+      master.gain.exponentialRampToValueAtTime(0.115, now + 0.22);
+      master.gain.exponentialRampToValueAtTime(0.075, now + 0.38);
+      master.gain.exponentialRampToValueAtTime(0.0001, now + duration);
       master.connect(ctx.destination);
 
-      const osc = ctx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(470, now);
-      osc.frequency.exponentialRampToValueAtTime(760, now + 0.13);
-      osc.frequency.exponentialRampToValueAtTime(430, now + 0.52);
-      osc.connect(master);
-      osc.start(now);
-      osc.stop(now + 0.60);
+      // Main vocal body: low-to-high then falling, like a short cat "mrrr-ow".
+      const voice = ctx.createOscillator();
+      voice.type = 'sawtooth';
+      voice.frequency.setValueAtTime(260, now);
+      voice.frequency.exponentialRampToValueAtTime(510, now + 0.18);
+      voice.frequency.exponentialRampToValueAtTime(730, now + 0.31);
+      voice.frequency.exponentialRampToValueAtTime(360, now + 0.68);
 
-      const harmonic = ctx.createOscillator();
-      harmonic.type = 'triangle';
-      harmonic.frequency.setValueAtTime(940, now);
-      harmonic.frequency.exponentialRampToValueAtTime(1500, now + 0.13);
-      harmonic.frequency.exponentialRampToValueAtTime(860, now + 0.52);
+      const voiceFilter = ctx.createBiquadFilter();
+      voiceFilter.type = 'lowpass';
+      voiceFilter.frequency.setValueAtTime(1500, now);
+      voiceFilter.frequency.exponentialRampToValueAtTime(2600, now + 0.22);
+      voiceFilter.frequency.exponentialRampToValueAtTime(1100, now + 0.68);
 
-      const harmonicGain = ctx.createGain();
-      harmonicGain.gain.setValueAtTime(0.0001, now);
-      harmonicGain.gain.exponentialRampToValueAtTime(0.035, now + 0.04);
-      harmonicGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+      voice.connect(voiceFilter);
+      voiceFilter.connect(master);
+      voice.start(now);
+      voice.stop(now + duration);
 
-      harmonic.connect(harmonicGain);
-      harmonicGain.connect(ctx.destination);
-      harmonic.start(now);
-      harmonic.stop(now + 0.58);
+      // Higher formant gives the sound a more vocal / feline character.
+      const formant = ctx.createOscillator();
+      formant.type = 'triangle';
+      formant.frequency.setValueAtTime(620, now);
+      formant.frequency.exponentialRampToValueAtTime(1050, now + 0.2);
+      formant.frequency.exponentialRampToValueAtTime(520, now + 0.66);
+
+      const formantGain = ctx.createGain();
+      formantGain.gain.setValueAtTime(0.0001, now);
+      formantGain.gain.exponentialRampToValueAtTime(0.045, now + 0.05);
+      formantGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.67);
+
+      formant.connect(formantGain);
+      formantGain.connect(master);
+      formant.start(now);
+      formant.stop(now + 0.69);
+
+      // Tiny breathy onset so it doesn't sound like a clean electronic beep.
+      const breath = ctx.createOscillator();
+      breath.type = 'sine';
+      breath.frequency.setValueAtTime(180, now);
+      breath.frequency.exponentialRampToValueAtTime(300, now + 0.11);
+
+      const breathGain = ctx.createGain();
+      breathGain.gain.setValueAtTime(0.0001, now);
+      breathGain.gain.exponentialRampToValueAtTime(0.018, now + 0.035);
+      breathGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+
+      breath.connect(breathGain);
+      breathGain.connect(ctx.destination);
+      breath.start(now);
+      breath.stop(now + 0.17);
 
       setTimeout(() => {
         if (ctx.state !== 'closed') ctx.close();
-      }, 750);
+      }, 900);
     } catch (e) {
-      // Audio is a playful enhancement; the reveal still works if audio is unavailable.
+      // Reveal still works if browser audio is unavailable.
     }
   }
 
