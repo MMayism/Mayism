@@ -3491,6 +3491,340 @@ header.header .menu-toggle{
 }
 </style>
 
+
+<style id="mayism-v5-click-frame-cursor">
+/* =========================================================
+   MAYISM V5 — PINK GALLERY FRAME + CLEAN LIGHTBOX + ARTIST CURSOR
+   ========================================================= */
+
+/* Kill the remaining pale/white mat look from older cascades.
+   The artwork itself is not changed. */
+.art-card .art-media,
+.traditional-gallery .art-media{
+  padding:7px!important;
+  background:#171016!important;
+  border:1px solid rgba(240,138,178,.58)!important;
+  box-shadow:
+    7px 8px 0 rgba(94,39,68,.72),
+    0 0 0 1px rgba(240,138,178,.10)!important;
+}
+
+/* A more bespoke "printed frame" than a white box. */
+.art-card .art-media{
+  border-radius:14px 3px 18px 5px!important;
+}
+.art-card:nth-child(3n+2) .art-media{
+  border-radius:4px 17px 6px 14px!important;
+}
+.art-card:nth-child(3n) .art-media{
+  border-radius:19px 5px 10px 16px!important;
+}
+
+/* Keep the image clean — no blackening, dimming, or filter on hover. */
+.art-card .art-media img{
+  position:relative!important;
+  z-index:1!important;
+  filter:none!important;
+  opacity:1!important;
+  transform:none!important;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1)!important;
+}
+.art-card:hover .art-media img{
+  filter:none!important;
+  opacity:1!important;
+  transform:scale(1.018)!important;
+}
+
+/* Pink editorial corner marks. */
+.art-card .art-media:before{
+  inset:5px!important;
+  z-index:4!important;
+  border:0!important;
+  background:
+    linear-gradient(var(--hot),var(--hot)) left top/34px 1px no-repeat,
+    linear-gradient(var(--hot),var(--hot)) left top/1px 34px no-repeat,
+    linear-gradient(rgba(255,155,195,.38),rgba(255,155,195,.38)) right bottom/34px 1px no-repeat,
+    linear-gradient(rgba(255,155,195,.38),rgba(255,155,195,.38)) right bottom/1px 34px no-repeat!important;
+  opacity:.9!important;
+}
+
+/* Small MAYISM artist mark, not a generic VIEW overlay. */
+.art-card .art-media:after{
+  content:"MAYISM / 01"!important;
+  right:auto!important;
+  left:11px!important;
+  bottom:10px!important;
+  padding:4px 7px!important;
+  border:1px solid rgba(255,155,195,.35)!important;
+  background:rgba(18,14,18,.88)!important;
+  color:#ff9bc3!important;
+  font:800 7px/1 'Space Grotesk',sans-serif!important;
+  letter-spacing:.16em!important;
+  opacity:.82!important;
+  transform:rotate(-1.5deg)!important;
+}
+.art-card:nth-child(3n+2) .art-media:after{content:"MAYISM / 02"!important}
+.art-card:nth-child(3n) .art-media:after{content:"MAYISM / 03"!important}
+
+/* Don't let hover turn the artwork/frame into a dark screen. */
+.art-card:hover .art-media{
+  background:#171016!important;
+  border-color:rgba(255,155,195,.82)!important;
+  box-shadow:
+    10px 11px 0 rgba(94,39,68,.84),
+    0 18px 42px rgba(0,0,0,.25)!important;
+}
+
+/* Traditional works get a softer hand-mounted pink frame. */
+.traditional-block .art-card .art-media{
+  background:#21151d!important;
+  border-color:rgba(240,138,178,.62)!important;
+  border-radius:5px 17px 4px 19px!important;
+}
+.traditional-block .art-card:nth-child(even) .art-media{
+  border-radius:17px 4px 19px 6px!important;
+}
+
+/* Architecture: compact dark technical frames. */
+.technical-strip .architecture-card figure{
+  background:#171016!important;
+  border:1px solid rgba(240,138,178,.58)!important;
+  box-shadow:7px 8px 0 rgba(94,39,68,.72)!important;
+}
+.technical-strip .architecture-card img{
+  filter:none!important;
+  opacity:1!important;
+}
+
+/* ---------------------------------------------------------
+   SERVICES → WORK NAVIGATION
+   --------------------------------------------------------- */
+.service-grid article{
+  cursor:pointer!important;
+  position:relative!important;
+}
+.service-grid article:after{
+  content:"OPEN WORK ↗"!important;
+  position:absolute!important;
+  right:0!important;
+  top:50%!important;
+  transform:translateY(-50%) translateX(5px)!important;
+  color:var(--hot)!important;
+  font:800 8px/1 'Space Grotesk',sans-serif!important;
+  letter-spacing:.16em!important;
+  opacity:.0!important;
+  transition:opacity .25s ease,transform .25s ease!important;
+}
+.service-grid article:hover:after,
+.service-grid article:focus-visible:after{
+  opacity:1!important;
+  transform:translateY(-50%) translateX(0)!important;
+}
+
+/* ---------------------------------------------------------
+   LIGHTBOX — editorial pink, never a plain black screen
+   --------------------------------------------------------- */
+.lightbox{
+  width:min(92vw,1100px)!important;
+  max-width:none!important;
+  max-height:90vh!important;
+  padding:20px!important;
+  border:1px solid rgba(240,138,178,.65)!important;
+  border-radius:10px 3px 14px 5px!important;
+  background:#120e12!important;
+  color:#f7edf2!important;
+  box-shadow:
+    14px 16px 0 rgba(94,39,68,.82),
+    0 35px 90px rgba(0,0,0,.65)!important;
+}
+.lightbox::backdrop{
+  background:
+    radial-gradient(circle at 50% 30%,rgba(240,138,178,.13),transparent 34%),
+    rgba(10,7,10,.82)!important;
+  backdrop-filter:blur(8px)!important;
+}
+.lightbox-image{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:55vh!important;
+  background:#171016!important;
+  border:1px solid rgba(240,138,178,.32)!important;
+  border-radius:5px 14px 4px 12px!important;
+  padding:10px!important;
+}
+.lightbox-image img{
+  max-width:100%!important;
+  max-height:70vh!important;
+  width:auto!important;
+  height:auto!important;
+  object-fit:contain!important;
+  filter:none!important;
+  opacity:1!important;
+}
+.lightbox-caption{
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:baseline!important;
+  gap:20px!important;
+  padding:12px 4px 2px!important;
+  color:#f7edf2!important;
+}
+.lightbox-caption strong{
+  font-family:'DM Serif Display',serif!important;
+  font-size:20px!important;
+}
+.lightbox-caption span{
+  font:700 8px/1.3 'Space Grotesk',sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+  color:#f08ab2!important;
+}
+.lightbox-close,.lightbox-nav{
+  border:1px solid rgba(240,138,178,.55)!important;
+  background:#1a1218!important;
+  color:#ff9bc3!important;
+}
+.lightbox-close:hover,.lightbox-nav:hover{
+  background:#f08ab2!important;
+  color:#170f14!important;
+}
+
+/* ---------------------------------------------------------
+   ARTIST CURSOR — pink registration mark / tiny star
+   --------------------------------------------------------- */
+.mayism-cursor{
+  display:block!important;
+  width:12px!important;
+  height:12px!important;
+  border:1px solid #ff9bc3!important;
+  border-radius:50%!important;
+  background:rgba(18,14,18,.18)!important;
+  mix-blend-mode:normal!important;
+  box-shadow:0 0 0 1px rgba(240,138,178,.12)!important;
+  transition:
+    width .2s ease,
+    height .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease!important;
+}
+.mayism-cursor:after{
+  content:"✦"!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-52%)!important;
+  color:#ff9bc3!important;
+  font:700 7px/1 serif!important;
+}
+.mayism-cursor.hot{
+  width:30px!important;
+  height:30px!important;
+  background:rgba(240,138,178,.13)!important;
+  border-color:#ff9bc3!important;
+  box-shadow:
+    0 0 0 1px rgba(255,155,195,.25),
+    0 0 18px rgba(240,138,178,.16)!important;
+}
+.mayism-cursor.hot:after{
+  font-size:9px!important;
+}
+@media(max-width:850px){
+  .mayism-cursor{display:none!important}
+  .service-grid article:after{display:none!important}
+}
+</style>
+
+
+<script id="mayism-v5-interactions">
+document.addEventListener('DOMContentLoaded', function(){
+  /* Service rows become intentional navigation points. */
+  const services = Array.from(document.querySelectorAll('.service-grid article'));
+  const collections = {
+    'novel covers': document.querySelector('.signature-block'),
+    'character art': document.querySelector('.signature-block'),
+    'promotional art': document.querySelector('.collection-block:not(.signature-block)')
+  };
+  services.forEach(article=>{
+    const title = (article.querySelector('h3')?.textContent || '').trim().toLowerCase();
+    const target = collections[title];
+    if(!target) return;
+    article.setAttribute('role','link');
+    article.setAttribute('tabindex','0');
+    const go = ()=>{
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    article.addEventListener('click', go);
+    article.addEventListener('keydown', e=>{
+      if(e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        go();
+      }
+    });
+  });
+
+  /* Artwork click: open the existing lightbox, but intercept the old
+     handlers first so it never behaves like a black-screen hover. */
+  const box = document.querySelector('.lightbox');
+  const boxImg = box?.querySelector('.lightbox-image img');
+  const boxTitle = box?.querySelector('.lightbox-caption strong');
+  const boxMeta = box?.querySelector('.lightbox-caption span');
+
+  function openArtwork(card){
+    if(!box || !boxImg) return;
+    const img = card.querySelector('img');
+    if(!img) return;
+    boxImg.src = img.currentSrc || img.src;
+    boxImg.alt = img.alt || '';
+    const title = card.querySelector('.card-label b')?.textContent?.trim() || 'MAYISM artwork';
+    const meta = card.querySelector('.card-label small')?.textContent?.trim() || 'MAYISM / selected work';
+    if(boxTitle) boxTitle.textContent = title;
+    if(boxMeta) boxMeta.textContent = meta;
+    if(typeof box.showModal === 'function') box.showModal();
+  }
+
+  document.addEventListener('click', function(e){
+    const card = e.target.closest('.art-card');
+    if(!card || card.classList.contains('architecture-card')) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    openArtwork(card);
+  }, true);
+
+  document.addEventListener('click', function(e){
+    const card = e.target.closest('.architecture-card');
+    if(!card) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    openArtwork(card);
+  }, true);
+
+  /* Close by clicking the backdrop as well as the existing close button. */
+  if(box){
+    box.addEventListener('click', function(e){
+      if(e.target === box && typeof box.close === 'function') box.close();
+    });
+  }
+
+  /* Cursor: links, buttons, service rows, and artwork cards feel like
+     designed interactive objects. */
+  const cur = document.querySelector('.mayism-cursor');
+  if(cur){
+    addEventListener('pointermove', e=>{
+      cur.style.left=e.clientX+'px';
+      cur.style.top=e.clientY+'px';
+    }, {passive:true});
+    document.querySelectorAll('a,button,.service-grid article').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cur.classList.add('hot'));
+      el.addEventListener('mouseleave',()=>cur.classList.remove('hot'));
+    });
+  }
+});
+</script>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
