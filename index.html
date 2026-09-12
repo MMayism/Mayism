@@ -3904,6 +3904,17 @@ document.addEventListener('DOMContentLoaded', function(){
   z-index:40!important;
 }
 
+/* Tiny catch counter. */
+.pakaaat-catch-count{
+  position:absolute!important;
+  top:15px!important;
+  left:16px!important;
+  z-index:40!important;
+  color:var(--hot)!important;
+  font:800 8px/1 'Space Grotesk',sans-serif!important;
+  letter-spacing:.15em!important;
+  text-transform:uppercase!important;
+}
 
 /* Successful catch flash. */
 #pakaaat-assistant.pakaaat-caught .assistant-photo{
@@ -3960,15 +3971,29 @@ document.addEventListener('DOMContentLoaded', function(){
 
   const originalSrc = 'assets/studio-cat.png';
 
-  function gameImageSrc(src){
-    return src || '';
+  const blobUrls = new Map();
+  function toBlobUrl(dataUrl){
+    if(!dataUrl) return '';
+    if(blobUrls.has(dataUrl)) return blobUrls.get(dataUrl);
+    try{
+      const parts = dataUrl.split(',');
+      const mime = (parts[0].match(/data:([^;]+)/) || [,'image/jpeg'])[1];
+      const binary = atob(parts[1]);
+      const bytes = new Uint8Array(binary.length);
+      for(let i=0;i<binary.length;i++) bytes[i] = binary.charCodeAt(i);
+      const url = URL.createObjectURL(new Blob([bytes], {type:mime}));
+      blobUrls.set(dataUrl, url);
+      return url;
+    }catch(e){
+      return dataUrl;
+    }
   }
 
   // Preload all three game photos so every catch swaps instantly.
   playImages.forEach(function(src){
     if(!src) return;
     const preloadImg = new Image();
-    preloadImg.src = gameImageSrc(src);
+    preloadImg.src = toBlobUrl(src);
   });
 
   function playGameMeow(){
@@ -4029,6 +4054,11 @@ document.addEventListener('DOMContentLoaded', function(){
   status.innerHTML = 'CLICK TO MEET PAKAAAT';
   card.appendChild(status);
 
+  const count = document.createElement('div');
+  count.className = 'pakaaat-catch-count';
+  count.textContent = 'STUDIO FILE / 001';
+  card.appendChild(count);
+
   function updateStatus(){
     if(finished){
       status.innerHTML = 'PAKAAAT GOT TIRED · <b>3 / 3</b> · TIME FOR A NAP';
@@ -4075,6 +4105,8 @@ document.addEventListener('DOMContentLoaded', function(){
     button.setAttribute('aria-expanded','true');
     label.textContent = 'LET’S PLAY';
     sub.textContent = 'try to catch her →';
+
+    count.textContent = 'STUDIO FILE / 001';
     updateStatus();
   }
 
@@ -4087,11 +4119,13 @@ document.addEventListener('DOMContentLoaded', function(){
     card.classList.add('pakaaat-game','pakaaat-open');
     card.classList.remove('pakaaat-finished');
 
-    img.src = gameImageSrc(playImages[0]);
+    img.src = toBlobUrl(playImages[0]);
     face.setAttribute('aria-hidden','false');
     button.setAttribute('aria-expanded','true');
     label.textContent = 'HIDE HER';
     sub.textContent = 'creative director revealed ←';
+
+    count.textContent = 'CATCH FILE / 001';
     updateStatus();
     requestAnimationFrame(placeCat);
   }
@@ -4104,7 +4138,7 @@ document.addEventListener('DOMContentLoaded', function(){
     updateStatus();
 
     // Final state: tired PAKAAAT goes to sleep.
-    img.src = gameImageSrc(img.dataset.sleep);
+    img.src = toBlobUrl(img.dataset.sleep);
     face.removeAttribute('style');
 
     // Final panel is intentionally terminal; refresh the page to play again.
@@ -4113,6 +4147,7 @@ document.addEventListener('DOMContentLoaded', function(){
     sub.textContent = 'refresh to play again →';
     button.setAttribute('aria-hidden','true');
     button.setAttribute('tabindex','-1');
+    count.textContent = 'STUDIO FILE / NAP';
   }
 
   function catchCat(e){
@@ -4133,7 +4168,8 @@ document.addEventListener('DOMContentLoaded', function(){
       return;
     }
 
-    img.src = gameImageSrc(playImages[catches]);
+    img.src = toBlobUrl(playImages[catches]);
+    count.textContent = 'CATCH FILE / 00' + (catches + 1);
     updateStatus();
 
     // Give each photo a moment before PAKAAAT escapes again.
@@ -4170,6 +4206,7 @@ document.addEventListener('DOMContentLoaded', function(){
     button.setAttribute('aria-expanded','false');
     label.textContent = 'CLICK HERE';
     sub.textContent = 'meet the creative director →';
+    count.textContent = 'STUDIO FILE / 001';
     updateStatus();
   }, true);
 
@@ -4249,6 +4286,12 @@ document.addEventListener('DOMContentLoaded', function(){
   top:auto!important;
   transform:translateX(-50%)!important;
   margin:0!important;
+}
+#pakaaat-assistant.pakaaat-finished .pakaaat-catch-count{
+  top:16px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  white-space:nowrap!important;
 }
 #pakaaat-assistant.pakaaat-finished .pakaaat-reveal{
   display:none!important;
@@ -4448,12 +4491,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <span class="pakaaat-reveal-sub">meet the creative director →</span>
       </button>
       <div class="assistant-photo" id="pakaaat-face" aria-hidden="true">
-        <img id="pakaaat-image" src="assets/studio-cat.png"
-          data-play-1="assets/pakaaat/pakaaat-01.jpg"
-          data-play-2="assets/pakaaat/pakaaat-02.jpg"
-          data-play-3="assets/pakaaat/pakaaat-03.jpg"
-          data-sleep="assets/pakaaat/pakaaat-sleep.jpg"
-          alt="PAKAAAT, MAYISM's studio cat">
+        <img id="pakaaat-image" src="assets/studio-cat.png" data-play-1="assets/pakaaat/pakaaat-01.jpg?v=1" data-play-2="assets/pakaaat/pakaaat-02.jpg?v=1" data-play-3="assets/pakaaat/pakaaat-03.jpg?v=1" data-sleep="assets/pakaaat/pakaaat-sleep.jpg?v=1" alt="PAKAAAT, MAYISM's studio cat">
       </div>
       <div class="assistant-copy">
         <span>STUDIO ASSISTANT</span>
