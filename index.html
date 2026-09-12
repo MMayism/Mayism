@@ -3825,6 +3825,128 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+
+<style id="mayism-pakaaat-center-v6">
+/* =========================================================
+   PAKAAAT — centered studio-director composition
+   ========================================================= */
+.studio-assistant{
+  position:relative!important;
+  width:min(100%,720px)!important;
+  max-width:720px!important;
+  margin:58px auto 48px!important;
+  display:grid!important;
+  grid-template-columns:1fr 110px auto 1fr!important;
+  align-items:center!important;
+  column-gap:16px!important;
+  padding:34px 34px!important;
+  box-sizing:border-box!important;
+  transform:rotate(-1.2deg)!important;
+  overflow:visible!important;
+}
+
+/* Keep the reveal control as a small floating studio label. */
+.studio-assistant .pakaaat-reveal{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  z-index:5!important;
+  margin:0!important;
+}
+
+/* Center the cat + name as one visual unit. */
+.studio-assistant .assistant-photo{
+  grid-column:2!important;
+  grid-row:1!important;
+  justify-self:end!important;
+  width:110px!important;
+  height:110px!important;
+  margin:0!important;
+}
+.studio-assistant .assistant-copy{
+  grid-column:3!important;
+  grid-row:1!important;
+  justify-self:start!important;
+  min-width:190px!important;
+  margin:0!important;
+  text-align:left!important;
+}
+
+/* Pull PAKAAAT visually closer to the cat. */
+.studio-assistant .assistant-copy strong{
+  display:block!important;
+  margin:2px 0 0!important;
+  font-size:clamp(40px,4.2vw,54px)!important;
+  line-height:.82!important;
+  letter-spacing:-.035em!important;
+}
+.studio-assistant .assistant-copy p{
+  margin:10px 0 5px!important;
+}
+.studio-assistant .assistant-copy small{
+  display:block!important;
+}
+
+/* The photo gets a deliberate gallery-seal treatment. */
+.studio-assistant .assistant-photo{
+  border:1px solid rgba(255,155,195,.7)!important;
+  box-shadow:
+    0 0 0 6px rgba(240,138,178,.08),
+    7px 8px 0 rgba(94,39,68,.68)!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+}
+.studio-assistant .assistant-photo img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+
+/* Center the entire assistant card itself, not just its contents. */
+@media(max-width:850px){
+  .studio-assistant{
+    width:min(100%,620px)!important;
+    margin:44px auto!important;
+    grid-template-columns:1fr 92px auto 1fr!important;
+    column-gap:12px!important;
+    padding:34px 24px!important;
+  }
+  .studio-assistant .assistant-photo{
+    width:92px!important;
+    height:92px!important;
+  }
+  .studio-assistant .assistant-copy{
+    min-width:165px!important;
+  }
+}
+@media(max-width:600px){
+  .studio-assistant{
+    width:100%!important;
+    grid-template-columns:1fr 78px auto 1fr!important;
+    column-gap:9px!important;
+    padding:36px 16px 28px!important;
+  }
+  .studio-assistant .assistant-photo{
+    width:78px!important;
+    height:78px!important;
+  }
+  .studio-assistant .assistant-copy{
+    min-width:0!important;
+  }
+  .studio-assistant .assistant-copy strong{
+    font-size:31px!important;
+  }
+  .studio-assistant .assistant-copy p{
+    font-size:10px!important;
+  }
+  .studio-assistant .assistant-copy span,
+  .studio-assistant .assistant-copy small{
+    font-size:7px!important;
+  }
+}
+</style>
+
 </head>
 <body><div class="mayism-cursor" aria-hidden="true"></div><div class="mayism-progress" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
