@@ -3963,38 +3963,24 @@ document.addEventListener('DOMContentLoaded', function(){
   let gameStarted = false;
   let finished = false;
 
+  // All PAKAAAT game photos are local files inside /assets/pakaaat/.
+  // No external image service or internet request is used for the photos.
+  const asset = function(path){ return new URL(path, document.baseURI).href; };
   const playImages = [
-    img.dataset.play1,
-    img.dataset.play2,
-    img.dataset.play3
+    asset('./assets/pakaaat/pakaaat-01.jpg'),
+    asset('./assets/pakaaat/pakaaat-02.jpg'),
+    asset('./assets/pakaaat/pakaaat-03.jpg')
   ];
+  const originalSrc = asset('./assets/studio-cat.png');
+  const sleepSrc = asset('./assets/pakaaat/pakaaat-sleep.jpg');
 
-  const originalSrc = 'assets/studio-cat.png';
-
-  const blobUrls = new Map();
-  function toBlobUrl(dataUrl){
-    if(!dataUrl) return '';
-    if(blobUrls.has(dataUrl)) return blobUrls.get(dataUrl);
-    try{
-      const parts = dataUrl.split(',');
-      const mime = (parts[0].match(/data:([^;]+)/) || [,'image/jpeg'])[1];
-      const binary = atob(parts[1]);
-      const bytes = new Uint8Array(binary.length);
-      for(let i=0;i<binary.length;i++) bytes[i] = binary.charCodeAt(i);
-      const url = URL.createObjectURL(new Blob([bytes], {type:mime}));
-      blobUrls.set(dataUrl, url);
-      return url;
-    }catch(e){
-      return dataUrl;
-    }
-  }
-
-  // Preload all three game photos so every catch swaps instantly.
+  // Preload the three local game photos so each catch swaps immediately.
   playImages.forEach(function(src){
-    if(!src) return;
     const preloadImg = new Image();
-    preloadImg.src = toBlobUrl(src);
+    preloadImg.src = src;
   });
+  const preloadSleep = new Image();
+  preloadSleep.src = sleepSrc;
 
   function playGameMeow(){
     try{
@@ -4054,11 +4040,6 @@ document.addEventListener('DOMContentLoaded', function(){
   status.innerHTML = 'CLICK TO MEET PAKAAAT';
   card.appendChild(status);
 
-  const count = document.createElement('div');
-  count.className = 'pakaaat-catch-count';
-  count.textContent = 'STUDIO FILE / 001';
-  card.appendChild(count);
-
   function updateStatus(){
     if(finished){
       status.innerHTML = 'PAKAAAT GOT TIRED · <b>3 / 3</b> · TIME FOR A NAP';
@@ -4075,15 +4056,12 @@ document.addEventListener('DOMContentLoaded', function(){
     const rect = card.getBoundingClientRect();
     const size = window.innerWidth <= 600 ? 96 : 128;
     const pad = 18;
-
     const minX = pad;
     const maxX = Math.max(minX, rect.width - size - pad);
     const minY = 45;
     const maxY = Math.max(minY, rect.height - size - 48);
-
     const x = minX + Math.random() * (maxX - minX);
     const y = minY + Math.random() * (maxY - minY);
-
     face.style.left = x + 'px';
     face.style.top = y + 'px';
     face.style.transform = 'rotate(' + (Math.random() > .5 ? 3 : -3) + 'deg)';
@@ -4093,20 +4071,15 @@ document.addEventListener('DOMContentLoaded', function(){
     revealed = true;
     gameStarted = false;
     finished = false;
-
     card.classList.add('pakaaat-open');
     card.classList.remove('pakaaat-game','pakaaat-finished','pakaaat-caught');
-
     img.src = originalSrc;
     playGameMeow();
     face.removeAttribute('style');
     face.setAttribute('aria-hidden','false');
-
     button.setAttribute('aria-expanded','true');
     label.textContent = 'LET’S PLAY';
     sub.textContent = 'try to catch her →';
-
-    count.textContent = 'STUDIO FILE / 001';
     updateStatus();
   }
 
@@ -4115,17 +4088,13 @@ document.addEventListener('DOMContentLoaded', function(){
     gameStarted = true;
     finished = false;
     catches = 0;
-
     card.classList.add('pakaaat-game','pakaaat-open');
     card.classList.remove('pakaaat-finished');
-
-    img.src = toBlobUrl(playImages[0]);
+    img.src = playImages[0];
     face.setAttribute('aria-hidden','false');
     button.setAttribute('aria-expanded','true');
     label.textContent = 'HIDE HER';
     sub.textContent = 'creative director revealed ←';
-
-    count.textContent = 'CATCH FILE / 001';
     updateStatus();
     requestAnimationFrame(placeCat);
   }
@@ -4133,29 +4102,21 @@ document.addEventListener('DOMContentLoaded', function(){
   function finishGame(){
     finished = true;
     gameStarted = false;
-
     card.classList.add('pakaaat-finished');
-    updateStatus();
-
-    // Final state: tired PAKAAAT goes to sleep.
-    img.src = toBlobUrl(img.dataset.sleep);
+    img.src = sleepSrc;
     face.removeAttribute('style');
-
-    // Final panel is intentionally terminal; refresh the page to play again.
     button.setAttribute('aria-expanded','true');
     label.textContent = 'PAKAAAT IS SLEEPING';
     sub.textContent = 'refresh to play again →';
     button.setAttribute('aria-hidden','true');
     button.setAttribute('tabindex','-1');
-    count.textContent = 'STUDIO FILE / NAP';
+    updateStatus();
   }
 
   function catchCat(e){
     if(!gameStarted || finished) return;
-
     e.preventDefault();
     e.stopPropagation();
-
     catches++;
     playGameMeow();
     card.classList.remove('pakaaat-caught');
@@ -4168,56 +4129,46 @@ document.addEventListener('DOMContentLoaded', function(){
       return;
     }
 
-    img.src = toBlobUrl(playImages[catches]);
-    count.textContent = 'CATCH FILE / 00' + (catches + 1);
+    img.src = playImages[catches];
     updateStatus();
-
-    // Give each photo a moment before PAKAAAT escapes again.
     setTimeout(placeCat, 40);
   }
 
   button.addEventListener('click', function(e){
     e.preventDefault();
     e.stopImmediatePropagation();
-
     const open = button.getAttribute('aria-expanded') === 'true';
 
     if(!open){
       revealFirst();
       return;
     }
-
     if(revealed && !gameStarted && !finished){
       startGame();
       return;
     }
 
-    // Hide/reset.
+    // Reset only if the game is manually reset before finishing.
     revealed = false;
     gameStarted = false;
     finished = false;
     catches = 0;
-
     card.classList.remove('pakaaat-game','pakaaat-open','pakaaat-finished','pakaaat-caught');
     img.src = originalSrc;
     face.removeAttribute('style');
     face.setAttribute('aria-hidden','true');
-
     button.setAttribute('aria-expanded','false');
+    button.setAttribute('aria-hidden','false');
+    button.removeAttribute('tabindex');
     label.textContent = 'CLICK HERE';
     sub.textContent = 'meet the creative director →';
-    count.textContent = 'STUDIO FILE / 001';
     updateStatus();
   }, true);
 
   face.addEventListener('click', catchCat, true);
-
   face.addEventListener('pointerdown', function(e){
-    if(gameStarted && !finished){
-      e.stopImmediatePropagation();
-    }
+    if(gameStarted && !finished) e.stopImmediatePropagation();
   }, true);
-
   updateStatus();
 });
 </script>
@@ -4491,7 +4442,12 @@ document.addEventListener('DOMContentLoaded', function(){
         <span class="pakaaat-reveal-sub">meet the creative director →</span>
       </button>
       <div class="assistant-photo" id="pakaaat-face" aria-hidden="true">
-        <img id="pakaaat-image" src="assets/studio-cat.png" data-play-1="assets/pakaaat/pakaaat-01.jpg?v=1" data-play-2="assets/pakaaat/pakaaat-02.jpg?v=1" data-play-3="assets/pakaaat/pakaaat-03.jpg?v=1" data-sleep="assets/pakaaat/pakaaat-sleep.jpg?v=1" alt="PAKAAAT, MAYISM's studio cat">
+        <img id="pakaaat-image" src="./assets/studio-cat.png"
+          data-play-1="./assets/pakaaat/pakaaat-01.jpg"
+          data-play-2="./assets/pakaaat/pakaaat-02.jpg"
+          data-play-3="./assets/pakaaat/pakaaat-03.jpg"
+          data-sleep="./assets/pakaaat/pakaaat-sleep.jpg"
+          alt="PAKAAAT, MAYISM's studio cat">
       </div>
       <div class="assistant-copy">
         <span>STUDIO ASSISTANT</span>
