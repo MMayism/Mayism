@@ -1,229 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff1f6">
-  <meta name="description" content="MAYISM — Thai illustrator Pheemwara Choymuang, specializing in novel covers and character illustration.">
-  <title>MAYISM — Thai Illustrator ♡</title>
+  <meta name="theme-color" content="#fff3f8">
+  <meta name="description" content="MAYISM — Thai illustrator Pheemwara Choymuang, creating novel covers, character art and visual stories.">
+  <title>MAYISM ♡ | Thai Illustrator</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <a class="logo" href="#home">MAYISM<span>♡</span></a>
-      <p class="logo-caption">THAI ILLUSTRATOR<br>CHARACTERS · NOVEL COVERS</p>
+<div class="site-shell">
 
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <aside class="sidebar">
+    <a class="brand" href="#home" aria-label="MAYISM home">MAYISM<span>♡</span></a>
+    <p class="brand-subtitle">THAI ILLUSTRATOR<br>CHARACTERS · NOVEL COVERS</p>
 
-      <nav class="navigation">
-        <a class="active" href="#home">⌂ <span>Home</span></a>
-        <a href="#work">▧ <span>Portfolio</span></a>
-        <a href="#about">♡ <span>About</span></a>
-        <a href="#services">✧ <span>Services</span></a>
-        <a href="#pakaaat">♧ <span>Pakaaat</span></a>
-        <a href="#contact">✉ <span>Contact</span></a>
-      </nav>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-      <div class="sidebar-bottom">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-link is-active" href="#home"><span class="nav-icon">⌂</span>Home</a>
+      <a class="nav-link" href="#work"><span class="nav-icon">▧</span>Portfolio</a>
+      <a class="nav-link" href="#about"><span class="nav-icon">♡</span>About</a>
+      <a class="nav-link" href="#architecture"><span class="nav-icon">▤</span>Architecture</a>
+      <a class="nav-link" href="#services"><span class="nav-icon">✧</span>Services</a>
+      <a class="nav-link" href="#pakaaat"><span class="nav-icon">♧</span>Pakaaat</a>
+      <a class="nav-link" href="#contact"><span class="nav-icon">✉</span>Contact</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-cat-frame">
         <img src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat sleeping">
-        <p>little muse, big naps ♡</p>
       </div>
-    </aside>
+      <p>little muse, big naps ♡</p>
+    </div>
+  </aside>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-copy">
-          <p class="handwritten">Hello, art lovers! ♡</p>
-          <h1>MAYISM<span>♡</span></h1>
-          <h2>Illustration with feeling.</h2>
-          <p class="intro">
-            I'm Pheemwara Choymuang, a Thai illustrator creating novel covers,
-            expressive characters and illustrations that bring stories to life.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#work">Explore My Art ↗</a>
-            <a class="button secondary" href="#contact">Let's Work Together ♡</a>
-          </div>
-          <p class="hero-meta">THAILAND · FREELANCE ILLUSTRATOR · 2023–2026</p>
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="handwritten">Hello, art lovers! ♡</p>
+        <h1>MAYISM<span>♡</span></h1>
+        <h2>Illustration with feeling.</h2>
+
+        <p class="hero-intro">
+          I'm Pheemwara Choymuang, a Thai illustrator creating novel covers,
+          expressive characters and illustrations that bring stories to life.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore My Art <span>↗</span></a>
+          <a class="button button-secondary" href="#contact">Let's Work Together ♡</a>
         </div>
 
-        <div class="hero-visual">
-          <div class="hero-art">
-            <!-- Use a complete artwork image; contain prevents unwanted cropping. -->
-            <img src="assets/art-01.jpg" alt="Illustration by MAYISM">
-          </div>
-          <span class="art-sticker sticker-top">drawn with feeling ♡</span>
-          <span class="art-sticker sticker-bottom">a story in every detail ✿</span>
-          <span class="doodle doodle-one">♡</span>
-          <span class="doodle doodle-two">✿</span>
-        </div>
-      </section>
+        <p class="hero-meta">THAILAND <i>·</i> FREELANCE ILLUSTRATOR <i>·</i> 2023–2026</p>
+      </div>
 
-      <section class="portfolio section" id="work">
-        <div class="section-title">
-          <div>
-            <p class="eyebrow">SELECTED WORKS · 01</p>
-            <h2>A world of <em>stories.</em></h2>
-          </div>
-          <p>Novel covers, character art and illustrations made with care.</p>
+      <div class="hero-visual">
+        <div class="hero-art-frame">
+          <img src="assets/art-03.jpg" alt="Featured illustration by MAYISM" class="hero-clickable">
         </div>
 
-        <div class="art-grid">
-          <article class="art-card">
-            <img src="assets/art-01.jpg" alt="Novel cover illustration" loading="lazy">
-            <div><h3>Novel Cover Art</h3><p>Cover illustration · Digital</p></div>
-          </article>
-          <article class="art-card">
-            <img src="assets/art-04.jpg" alt="Character illustration" loading="lazy">
-            <div><h3>Character Art</h3><p>Character-focused illustration</p></div>
-          </article>
-          <article class="art-card">
-            <img src="assets/art-09.jpg" alt="Portrait illustration" loading="lazy">
-            <div><h3>Portraits &amp; Expressions</h3><p>Personality in every detail</p></div>
-          </article>
-          <article class="art-card">
-            <img src="assets/art-15.jpg" alt="Story scene illustration" loading="lazy">
-            <div><h3>Visual Storytelling</h3><p>Scenes filled with feeling</p></div>
-          </article>
-          <article class="art-card">
-            <img src="assets/art-02.jpg" alt="Additional novel cover artwork" loading="lazy">
-            <div><h3>Cover Concepts</h3><p>Artwork for authors</p></div>
-          </article>
-          <article class="art-card">
-            <img src="assets/art-05.jpg" alt="Additional character artwork" loading="lazy">
-            <div><h3>Character Moments</h3><p>Digital illustration</p></div>
-          </article>
-        </div>
-      </section>
+        <span class="art-note note-top">drawn with feeling ♡</span>
+        <span class="art-note note-bottom">a story in every detail ✿</span>
+        <span class="doodle doodle-heart" aria-hidden="true">♡</span>
+        <span class="doodle doodle-flower" aria-hidden="true">✿</span>
+      </div>
 
-      <section class="about section" id="about">
-        <div class="about-portrait">
-          <img src="assets/profile-circle.png" alt="Pheemwara Choymuang, the artist behind MAYISM" loading="lazy">
-          <span class="portrait-note">artist behind MAYISM ♡</span>
-        </div>
+      <span class="hero-side-note">Art<br>Stories<br>Characters<br>and Pakaaat ♡</span>
+    </section>
 
-        <div class="about-content">
-          <p class="eyebrow">THE ARTIST BEHIND THE ART</p>
-          <h2>Hi, I'm <em>Pheemwara.</em></h2>
-          <p class="lead">A Thai illustrator with a background in architecture.</p>
-          <p>
-            I have a degree in Architecture and professional experience in
-            drafting and environmental impact assessment documentation in Thailand.
-            Since 2023, I've been working as a freelance illustrator, creating
-            novel cover illustrations for authors.
-          </p>
-          <p>
-            My architecture background has given me experience in design,
-            composition and visual detail. Through MAYISM, I bring that
-            foundation into character-focused art and storytelling.
-          </p>
-
-          <div class="skill-list">
-            <span>Novel Covers</span><span>Character Art</span><span>Illustration</span>
-            <span>Photoshop</span><span>Visual Composition</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="experience section">
-        <div class="section-title">
-          <div>
-            <p class="eyebrow">MY JOURNEY</p>
-            <h2>From design to <em>illustration.</em></h2>
-          </div>
-          <p>A little of the professional journey behind the artwork.</p>
-        </div>
-
-        <div class="timeline">
-          <article>
-            <span class="year">2023–2026</span>
-            <div><h3>Freelance Illustrator</h3><p>Illustrating novel covers for authors.</p></div>
-          </article>
-          <article>
-            <span class="year">2020–2022</span>
-            <div><h3>Draftsman · Mitr Environment Thailand Co., Ltd.</h3><p>Reviewed design work and checked compliance with EIA requirements.</p></div>
-          </article>
-          <article>
-            <span class="year">2017</span>
-            <div><h3>Assistant Architect Intern · Woravisit Co., Ltd.</h3><p>Material quantity surveying.</p></div>
-          </article>
-        </div>
-
-        <div class="professional-details">
-          <div><h3>Education</h3><p>Bachelor's degree in Architecture, Rajamangala University of Suvarnabhumi.</p></div>
-          <div><h3>Tools</h3><p>Photoshop · AutoCAD · SketchUp · Revit · Lumion · Microsoft Office</p></div>
-          <div><h3>Languages</h3><p>Thai · English</p></div>
-        </div>
-      </section>
-
-      <section class="services section" id="services">
-        <div class="section-title">
-          <div><p class="eyebrow">HOW WE CAN WORK TOGETHER</p><h2>Made for your <em>story.</em></h2></div>
-        </div>
-        <div class="service-grid">
-          <article><span>♡</span><h3>Novel Covers</h3><p>Cover illustrations designed to express the mood and world of your story.</p></article>
-          <article><span>✿</span><h3>Character Art</h3><p>Expressive character illustrations with attention to personality and detail.</p></article>
-          <article><span>✧</span><h3>Custom Illustration</h3><p>Discuss a unique illustration or creative collaboration for your project.</p></article>
-        </div>
-      </section>
-
-      <section class="pakaaat section" id="pakaaat">
-        <img src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat taking a nap" loading="lazy">
+    <!-- PORTFOLIO -->
+    <section class="section portfolio" id="work">
+      <div class="section-heading">
         <div>
-          <p class="eyebrow">A LITTLE PERSONAL TOUCH ♡</p>
-          <h2>Meet <em>Pakaaat.</em></h2>
-          <p>
-            Pakaaat is my beloved cat and little companion. She brings
-            sweetness to everyday life and keeps me company while I work on art.
-          </p>
+          <p class="eyebrow">SELECTED WORKS · 01</p>
+          <h2>A world of <em>stories.</em></h2>
         </div>
-        <span class="paw">♡</span>
-      </section>
+        <p class="section-summary">Novel covers, character art and illustrations made with care.</p>
+      </div>
 
-      <section class="contact section" id="contact">
-        <div class="contact-intro">
-          <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
-          <h2>Let's make something <em>meaningful.</em></h2>
-          <p>For novel covers, illustration projects and collaborations, send me a message.</p>
-          <a href="mailto:Mmayism005@gmail.com">Mmayism005@gmail.com ↗</a>
+      <div class="art-grid">
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-01.jpg" data-caption="Novel Cover Art · MAYISM" aria-label="View artwork 01 full size">
+          <span class="art-image"><img src="assets/art-01.jpg" alt="MAYISM artwork 01" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 01</span><span class="art-title">Novel Cover Art</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-02.jpg" data-caption="Character Illustration · MAYISM" aria-label="View artwork 02 full size">
+          <span class="art-image"><img src="assets/art-02.jpg" alt="MAYISM artwork 02" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 02</span><span class="art-title">Character Illustration</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-03.jpg" data-caption="Portrait Study · MAYISM" aria-label="View artwork 03 full size">
+          <span class="art-image"><img src="assets/art-03.jpg" alt="MAYISM artwork 03" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 03</span><span class="art-title">Portrait Study</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-04.jpg" data-caption="Story Moment · MAYISM" aria-label="View artwork 04 full size">
+          <span class="art-image"><img src="assets/art-04.jpg" alt="MAYISM artwork 04" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 04</span><span class="art-title">Story Moment</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-05.jpg" data-caption="Cover Concept · MAYISM" aria-label="View artwork 05 full size">
+          <span class="art-image"><img src="assets/art-05.jpg" alt="MAYISM artwork 05" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 05</span><span class="art-title">Cover Concept</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-06.jpg" data-caption="Character Art · MAYISM" aria-label="View artwork 06 full size">
+          <span class="art-image"><img src="assets/art-06.jpg" alt="MAYISM artwork 06" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 06</span><span class="art-title">Character Art</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-07.jpg" data-caption="Novel Cover · MAYISM" aria-label="View artwork 07 full size">
+          <span class="art-image"><img src="assets/art-07.jpg" alt="MAYISM artwork 07" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 07</span><span class="art-title">Novel Cover</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-08.jpg" data-caption="Emotional Scene · MAYISM" aria-label="View artwork 08 full size">
+          <span class="art-image"><img src="assets/art-08.jpg" alt="MAYISM artwork 08" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 08</span><span class="art-title">Emotional Scene</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-09.jpg" data-caption="Character Portrait · MAYISM" aria-label="View artwork 09 full size">
+          <span class="art-image"><img src="assets/art-09.jpg" alt="MAYISM artwork 09" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 09</span><span class="art-title">Character Portrait</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-10.jpg" data-caption="Illustration Study · MAYISM" aria-label="View artwork 10 full size">
+          <span class="art-image"><img src="assets/art-10.jpg" alt="MAYISM artwork 10" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 10</span><span class="art-title">Illustration Study</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-11.jpg" data-caption="Novel Cover Art · MAYISM" aria-label="View artwork 11 full size">
+          <span class="art-image"><img src="assets/art-11.jpg" alt="MAYISM artwork 11" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 11</span><span class="art-title">Novel Cover Art</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-12.jpg" data-caption="Storytelling Illustration · MAYISM" aria-label="View artwork 12 full size">
+          <span class="art-image"><img src="assets/art-12.jpg" alt="MAYISM artwork 12" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 12</span><span class="art-title">Storytelling Illustration</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-13.jpg" data-caption="Character Design · MAYISM" aria-label="View artwork 13 full size">
+          <span class="art-image"><img src="assets/art-13.jpg" alt="MAYISM artwork 13" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 13</span><span class="art-title">Character Design</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-14.jpg" data-caption="Romance Cover Art · MAYISM" aria-label="View artwork 14 full size">
+          <span class="art-image"><img src="assets/art-14.jpg" alt="MAYISM artwork 14" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 14</span><span class="art-title">Romance Cover Art</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-15.jpg" data-caption="Visual Storytelling · MAYISM" aria-label="View artwork 15 full size">
+          <span class="art-image"><img src="assets/art-15.jpg" alt="MAYISM artwork 15" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 15</span><span class="art-title">Visual Storytelling</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-16.jpg" data-caption="Portrait Illustration · MAYISM" aria-label="View artwork 16 full size">
+          <span class="art-image"><img src="assets/art-16.jpg" alt="MAYISM artwork 16" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 16</span><span class="art-title">Portrait Illustration</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-17.jpg" data-caption="Novel Cover Concept · MAYISM" aria-label="View artwork 17 full size">
+          <span class="art-image"><img src="assets/art-17.jpg" alt="MAYISM artwork 17" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 17</span><span class="art-title">Novel Cover Concept</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+        <button class="art-card lightbox-trigger" type="button" data-full="assets/art-18.jpg" data-caption="Illustration · MAYISM" aria-label="View artwork 18 full size">
+          <span class="art-image"><img src="assets/art-18.jpg" alt="MAYISM artwork 18" loading="lazy"></span>
+          <span class="art-info"><span class="art-index">WORK 18</span><span class="art-title">Illustration</span><span class="art-open">View full image ↗</span></span>
+        </button>
+
+      </div>
+
+      <p class="gallery-note">Tap any artwork to open the full image. Artwork is fitted inside the frame, not cropped.</p>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="section architecture" id="architecture">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ANOTHER SIDE OF MY PRACTICE</p>
+          <h2>Architecture &amp; <em>design.</em></h2>
         </div>
+        <p class="section-summary">Selected architecture-related work, reflecting my formal education and drafting experience.</p>
+      </div>
 
-        <form id="contact-form">
-          <div class="form-row">
-            <label>Your name *
-              <input name="name" type="text" placeholder="Your name" required>
-            </label>
-            <label>Your email *
-              <input name="email" type="email" placeholder="you@example.com" required>
-            </label>
+      <div class="architecture-grid">
+        <button class="architecture-card lightbox-trigger" type="button" data-full="assets/architecture/arch-feature-1.jpg" data-caption="Architecture feature 01 · MAYISM">
+          <img src="assets/architecture/arch-feature-1.jpg" alt="Architecture project feature 1" loading="lazy">
+          <span>ARCHITECTURE 01 ↗</span>
+        </button>
+
+        <button class="architecture-card lightbox-trigger" type="button" data-full="assets/architecture/arch-feature-2.jpg" data-caption="Architecture feature 02 · MAYISM">
+          <img src="assets/architecture/arch-feature-2.jpg" alt="Architecture project feature 2" loading="lazy">
+          <span>ARCHITECTURE 02 ↗</span>
+        </button>
+
+        <button class="architecture-card lightbox-trigger" type="button" data-full="assets/architecture/arch-feature-3.jpg" data-caption="Architecture feature 03 · MAYISM">
+          <img src="assets/architecture/arch-feature-3.jpg" alt="Architecture project feature 3" loading="lazy">
+          <span>ARCHITECTURE 03 ↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="about-photo-wrap">
+        <img src="assets/profile.jpg" alt="Pheemwara Choymuang, artist behind MAYISM" loading="lazy">
+        <span class="photo-label">artist behind MAYISM ♡</span>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow">THE ARTIST BEHIND THE ART</p>
+        <h2>Hi, I'm <em>Pheemwara.</em></h2>
+        <p class="about-lead">A Thai illustrator with a background in architecture.</p>
+
+        <p>I have a degree in Architecture and professional experience in drafting and environmental impact assessment documentation in Thailand. From 2023 to 2026, I worked as a freelance illustrator, creating novel cover illustrations for authors.</p>
+
+        <p>My architecture background shaped my appreciation for composition, design and visual detail. Through MAYISM, I bring that foundation into character-focused art and storytelling.</p>
+
+        <div class="skill-chips">
+          <span>Novel Covers</span>
+          <span>Character Art</span>
+          <span>Illustration</span>
+          <span>Photoshop</span>
+          <span>Visual Composition</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section journey" id="journey">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MY CREATIVE JOURNEY</p>
+          <h2>Design to <em>illustration.</em></h2>
+        </div>
+        <p class="section-summary">Professional experience behind the work, based on my resume.</p>
+      </div>
+
+      <div class="timeline">
+        <article>
+          <span class="timeline-year">2023–2026</span>
+          <div>
+            <h3>Freelance Illustrator</h3>
+            <p>Illustrating novel covers for authors.</p>
           </div>
-          <label>Project type
-            <select name="project">
-              <option>Novel cover</option>
-              <option>Character art</option>
-              <option>Custom illustration</option>
-              <option>Collaboration</option>
-              <option>Other project</option>
-            </select>
-          </label>
-          <label>Your message *
-            <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
-          </label>
-          <button class="button primary" type="submit">Prepare Email ♡</button>
-          <p class="form-status" id="form-status" aria-live="polite"></p>
-        </form>
-      </section>
+        </article>
 
-      <footer class="footer">
-        <a class="footer-logo" href="#home">MAYISM ♡</a>
-        <p>Thai illustrator · Novel covers · Character art</p>
-        <a href="#home">Back to top ↑</a>
-      </footer>
-    </main>
-  </div>
+        <article>
+          <span class="timeline-year">2020–2022</span>
+          <div>
+            <h3>Draftsman · Mitr Environment Thailand Co., Ltd.</h3>
+            <p>Reviewed design work and corrected errors to help ensure compliance with Environmental Impact Assessment requirements.</p>
+          </div>
+        </article>
+
+        <article>
+          <span class="timeline-year">2017</span>
+          <div>
+            <h3>Assistant Architect Intern · Woravisit Co., Ltd.</h3>
+            <p>Material quantity surveying.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="credentials">
+        <div>
+          <h3>Education</h3>
+          <p>Bachelor's degree in Architecture, Rajamangala University of Suvarnabhumi.</p>
+        </div>
+        <div>
+          <h3>Creative &amp; Design Tools</h3>
+          <p>Photoshop · AutoCAD · SketchUp · Revit · Lumion · Microsoft Office</p>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <p>Thai · English</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="services">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">HOW WE CAN WORK TOGETHER</p>
+          <h2>Made for your <em>story.</em></h2>
+        </div>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span>♡</span>
+          <h3>Novel Covers</h3>
+          <p>Cover illustrations designed to express the mood and world of your story.</p>
+        </article>
+
+        <article class="service-card">
+          <span>✿</span>
+          <h3>Character Art</h3>
+          <p>Expressive character illustrations with attention to personality and detail.</p>
+        </article>
+
+        <article class="service-card">
+          <span>✧</span>
+          <h3>Custom Illustration</h3>
+          <p>Discuss a unique illustration or creative collaboration for your project.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PAKAAAT -->
+    <section class="section pakaaat" id="pakaaat">
+      <img class="pakaaat-photo" src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat taking a nap" loading="lazy">
+
+      <div>
+        <p class="eyebrow">A LITTLE PERSONAL TOUCH ♡</p>
+        <h2>Meet <em>Pakaaat.</em></h2>
+        <p>Pakaaat is my beloved cat and little companion. She brings sweetness to everyday life and keeps me company while I work on art.</p>
+      </div>
+
+      <span class="pakaaat-heart" aria-hidden="true">♡</span>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="contact-intro">
+        <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+        <h2>Let's make something <em>meaningful.</em></h2>
+        <p>For novel covers, illustration projects and collaborations, send me a message.</p>
+        <a class="email-link" href="mailto:Mmayism005@gmail.com">Mmayism005@gmail.com ↗</a>
+      </div>
+
+      <form id="contact-form">
+        <div class="form-row">
+          <label>Your name *
+            <input name="name" type="text" placeholder="Your name" required>
+          </label>
+          <label>Your email *
+            <input name="email" type="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+
+        <label>Project type
+          <select name="project">
+            <option>Novel cover</option>
+            <option>Character art</option>
+            <option>Custom illustration</option>
+            <option>Collaboration</option>
+            <option>Other project</option>
+          </select>
+        </label>
+
+        <label>Your message *
+          <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+        </label>
+
+        <button class="button button-primary submit-button" type="submit">Prepare Email ♡</button>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+        <p class="form-help">Your email app will open with your message ready to send.</p>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <a class="footer-brand" href="#home">MAYISM ♡</a>
+      <p>Thai illustrator · Novel covers · Character art</p>
+      <a href="#home">Back to top ↑</a>
+    </footer>
+
+  </main>
+</div>
+
+<!-- FULL-SIZE ARTWORK VIEWER -->
+<div class="lightbox" id="art-lightbox" role="dialog" aria-modal="true" aria-label="Full-size artwork viewer" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close full-size image">×</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous artwork">‹</button>
+
+  <figure class="lightbox-figure">
+    <img class="lightbox-image" src="" alt="">
+    <figcaption class="lightbox-caption"></figcaption>
+  </figure>
+
+  <button class="lightbox-next" type="button" aria-label="Next artwork">›</button>
+  <p class="lightbox-help">Click outside the image or press Esc to close</p>
+</div>
+
 </body>
 </html>
