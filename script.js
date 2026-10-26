@@ -1,59 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Mobile sidebar menu
   const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".main-nav");
+  const sidebarNav = document.querySelector(".sidebar-nav");
 
-  if (menuButton && nav) {
+  if (menuButton && sidebarNav) {
     menuButton.addEventListener("click", () => {
-      const open = menuButton.getAttribute("aria-expanded") !== "true";
+      const isOpen = sidebarNav.classList.toggle("is-open");
 
-      menuButton.setAttribute("aria-expanded", String(open));
-      nav.classList.toggle("is-open", open);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.setAttribute(
         "aria-label",
-        open ? "Close menu" : "Open menu"
+        isOpen ? "Close navigation" : "Toggle navigation"
       );
     });
 
-    nav.querySelectorAll("a").forEach(link => {
+    sidebarNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        nav.classList.remove("is-open");
+        sidebarNav.classList.remove("is-open");
         menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open menu");
       });
     });
   }
 
-  const year = document.getElementById("year");
-  if (year) {
-    year.textContent = new Date().getFullYear();
+  // Highlight the active navigation link
+  const sections = document.querySelectorAll("main section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        navLinks.forEach(link => {
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href") === `#${entry.target.id}`
+          );
+        });
+      });
+    }, { rootMargin: "-25% 0px -60% 0px" });
+
+    sections.forEach(section => observer.observe(section));
   }
 
-  // Artwork lightbox
+  // Artwork preview
   const lightbox = document.getElementById("lightbox");
-  const lightboxImg = lightbox?.querySelector("img");
-  const closeButton = lightbox?.querySelector(".lightbox-close");
+  const lightboxImage = lightbox?.querySelector("img");
 
   function closeLightbox() {
-    if (!lightbox || !lightboxImg) return;
+    if (!lightbox || !lightboxImage) return;
 
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("lightbox-open");
-    lightboxImg.src = "";
+    lightboxImage.removeAttribute("src");
   }
 
-  document
-    .querySelectorAll(".art-image img, .hero-art-frame img")
+  document.querySelectorAll(".art-image img, .hero-art-frame img")
     .forEach(img => {
       img.style.cursor = "zoom-in";
 
       img.addEventListener("click", event => {
         event.preventDefault();
 
-        if (!lightbox || !lightboxImg) return;
+        if (!lightbox || !lightboxImage) return;
 
-        lightboxImg.src = img.currentSrc || img.src;
-        lightboxImg.alt = img.alt || "MAYISM artwork";
+        lightboxImage.src = img.currentSrc || img.src;
+        lightboxImage.alt = img.alt || "MAYISM artwork";
 
         lightbox.classList.add("is-open");
         lightbox.setAttribute("aria-hidden", "false");
@@ -61,18 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-  closeButton?.addEventListener("click", closeLightbox);
-
   lightbox?.addEventListener("click", event => {
-    if (event.target === lightbox) {
+    if (
+      event.target === lightbox ||
+      event.target.classList.contains("lightbox-close")
+    ) {
       closeLightbox();
     }
   });
 
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      closeLightbox();
-    }
+    if (event.key === "Escape") closeLightbox();
   });
 
   // Manual email contact form
@@ -84,17 +96,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!contactForm.reportValidity()) return;
 
-    const data = new FormData(contactForm);
+    const formData = new FormData(contactForm);
 
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const project = String(data.get("project") || "Other project");
-    const message = String(data.get("message") || "").trim();
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const project = String(formData.get("project") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-    const subject = encodeURIComponent(`MAYISM inquiry: ${project}`);
+    const subject = encodeURIComponent(
+      `MAYISM Portfolio Inquiry - ${project}`
+    );
 
     const body = encodeURIComponent(
-      `Hello MAYISM,\n\n${message}\n\nProject type: ${project}\nName: ${name}\nReply email: ${email}`
+      `Hello MAYISM,\n\n` +
+      `I'm interested in your work!\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Project: ${project}\n\n` +
+      `Message:\n${message}\n`
     );
 
     if (status) {
