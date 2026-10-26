@@ -3,309 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff0f6">
-  <meta name="description" content="MAYISM — illustrations, character art, novel covers and visual storytelling by Pheemwara Choymuang.">
-  <title>MAYISM ♡ Illustration with Feeling</title>
-
+  <meta name="theme-color" content="#fff1f6">
+  <meta name="description" content="MAYISM — Thai illustrator Pheemwara Choymuang, specializing in novel covers and character illustration.">
+  <title>MAYISM — Thai Illustrator ♡</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
-
 <body>
-  <div class="site-layout">
-
-    <!-- LEFT SIDEBAR -->
+  <div class="layout">
     <aside class="sidebar">
-      <a href="#home" class="logo">MAYISM<span>♡</span></a>
-      <p class="logo-caption">ILLUSTRATION · CHARACTERS<br>· NOVEL COVERS</p>
+      <a class="logo" href="#home">MAYISM<span>♡</span></a>
+      <p class="logo-caption">THAI ILLUSTRATOR<br>CHARACTERS · NOVEL COVERS</p>
 
-      <div class="sidebar-decoration">♡ ✿ ♡</div>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
-      <nav class="sidebar-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#home"><span>⌂</span> Home</a>
-        <a class="nav-link" href="#gallery"><span>▧</span> Gallery</a>
-        <a class="nav-link" href="#about"><span>♡</span> About</a>
-        <a class="nav-link" href="#services"><span>✧</span> Services</a>
-        <a class="nav-link" href="#pakaaat"><span>♧</span> Pakaaat</a>
-        <a class="nav-link" href="#contact"><span>✉</span> Contact</a>
+      <nav class="navigation">
+        <a class="active" href="#home">⌂ <span>Home</span></a>
+        <a href="#work">▧ <span>Portfolio</span></a>
+        <a href="#about">♡ <span>About</span></a>
+        <a href="#services">✧ <span>Services</span></a>
+        <a href="#pakaaat">♧ <span>Pakaaat</span></a>
+        <a href="#contact">✉ <span>Contact</span></a>
       </nav>
 
-      <div class="sidebar-cat">
-        <span>♡</span>
+      <div class="sidebar-bottom">
         <img src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat sleeping">
+        <p>little muse, big naps ♡</p>
       </div>
-
-      <p class="sidebar-note">made with love ♡</p>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content" id="home">
-
-      <!-- HERO -->
-      <section class="hero">
+    <main>
+      <section class="hero" id="home">
         <div class="hero-copy">
-          <div class="handwritten hello">Hello! ♡</div>
+          <p class="handwritten">Hello, art lovers! ♡</p>
           <h1>MAYISM<span>♡</span></h1>
-          <p class="hero-tagline">Illustration with feeling ♡</p>
-
-          <p class="hero-description">
-            A collection of characters, stories and illustrations made with love.
-            From novel covers to everyday moments, thank you for being here!
+          <h2>Illustration with feeling.</h2>
+          <p class="intro">
+            I'm Pheemwara Choymuang, a Thai illustrator creating novel covers,
+            expressive characters and illustrations that bring stories to life.
           </p>
-
-          <div class="hero-buttons">
-            <a class="button button-pink" href="#gallery">View My Works <span>→</span></a>
-            <a class="button button-outline" href="#contact">Get in Touch ♡</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">Explore My Art ↗</a>
+            <a class="button secondary" href="#contact">Let's Work Together ♡</a>
           </div>
-
-          <div class="hero-details">
-            <span>✿</span> Digital art · Character art · Novel covers
-          </div>
+          <p class="hero-meta">THAILAND · FREELANCE ILLUSTRATOR · 2023–2026</p>
         </div>
 
-        <div class="hero-art">
-          <div class="hero-art-frame">
-            <img src="assets/art-16.jpg" alt="Featured artwork by MAYISM">
+        <div class="hero-visual">
+          <div class="hero-art">
+            <!-- Use a complete artwork image; contain prevents unwanted cropping. -->
+            <img src="assets/art-01.jpg" alt="Illustration by MAYISM">
           </div>
-
-          <div class="floating-note note-top">
-            <strong>ART WITH FEELING ♡</strong>
-            <span>little stories, big emotions</span>
-          </div>
-
-          <div class="floating-note note-bottom">
-            <span>✿</span> made with love
-          </div>
-
-          <div class="hero-doodle doodle-heart">♡</div>
-          <div class="hero-doodle doodle-flower">✿</div>
-        </div>
-
-        <div class="hero-side-note">
-          Art<br>Stories<br>Characters<br>and Pakaaat ♡
+          <span class="art-sticker sticker-top">drawn with feeling ♡</span>
+          <span class="art-sticker sticker-bottom">a story in every detail ✿</span>
+          <span class="doodle doodle-one">♡</span>
+          <span class="doodle doodle-two">✿</span>
         </div>
       </section>
 
-      <!-- GALLERY -->
-      <section class="section gallery-section" id="gallery">
-        <div class="section-heading">
+      <section class="portfolio section" id="work">
+        <div class="section-title">
           <div>
-            <span class="eyebrow">A LITTLE ART CORNER ♡</span>
-            <h2>Featured Works <span>♡</span></h2>
+            <p class="eyebrow">SELECTED WORKS · 01</p>
+            <h2>A world of <em>stories.</em></h2>
           </div>
-          <a href="#contact" class="small-link">Work with me →</a>
+          <p>Novel covers, character art and illustrations made with care.</p>
         </div>
 
         <div class="art-grid">
-          <a href="#contact" class="art-card">
-            <div class="art-image">
-              <img src="assets/art-01.jpg" alt="MAYISM novel cover illustration" loading="lazy">
-            </div>
-            <span class="art-title">Novel Covers ♡</span>
-          </a>
-
-          <a href="#contact" class="art-card">
-            <div class="art-image">
-              <img src="assets/art-04.jpg" alt="MAYISM character illustration" loading="lazy">
-            </div>
-            <span class="art-title">Character Art ♡</span>
-          </a>
-
-          <a href="#contact" class="art-card">
-            <div class="art-image">
-              <img src="assets/art-09.jpg" alt="MAYISM portrait artwork" loading="lazy">
-            </div>
-            <span class="art-title">Illustration ♡</span>
-          </a>
-
-          <a href="#contact" class="art-card">
-            <div class="art-image">
-              <img src="assets/art-15.jpg" alt="MAYISM visual storytelling artwork" loading="lazy">
-            </div>
-            <span class="art-title">Story Moments ♡</span>
-          </a>
+          <article class="art-card">
+            <img src="assets/art-01.jpg" alt="Novel cover illustration" loading="lazy">
+            <div><h3>Novel Cover Art</h3><p>Cover illustration · Digital</p></div>
+          </article>
+          <article class="art-card">
+            <img src="assets/art-04.jpg" alt="Character illustration" loading="lazy">
+            <div><h3>Character Art</h3><p>Character-focused illustration</p></div>
+          </article>
+          <article class="art-card">
+            <img src="assets/art-09.jpg" alt="Portrait illustration" loading="lazy">
+            <div><h3>Portraits &amp; Expressions</h3><p>Personality in every detail</p></div>
+          </article>
+          <article class="art-card">
+            <img src="assets/art-15.jpg" alt="Story scene illustration" loading="lazy">
+            <div><h3>Visual Storytelling</h3><p>Scenes filled with feeling</p></div>
+          </article>
+          <article class="art-card">
+            <img src="assets/art-02.jpg" alt="Additional novel cover artwork" loading="lazy">
+            <div><h3>Cover Concepts</h3><p>Artwork for authors</p></div>
+          </article>
+          <article class="art-card">
+            <img src="assets/art-05.jpg" alt="Additional character artwork" loading="lazy">
+            <div><h3>Character Moments</h3><p>Digital illustration</p></div>
+          </article>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section class="section about-section" id="about">
-        <div class="about-image">
-          <div class="photo-frame">
-            <img src="assets/profile-circle.png" alt="Pheemwara Choymuang, artist behind MAYISM" loading="lazy">
-          </div>
-          <span class="about-heart">♡</span>
-          <span class="about-flower">✿</span>
+      <section class="about section" id="about">
+        <div class="about-portrait">
+          <img src="assets/profile-circle.png" alt="Pheemwara Choymuang, the artist behind MAYISM" loading="lazy">
+          <span class="portrait-note">artist behind MAYISM ♡</span>
         </div>
 
-        <div class="about-copy">
-          <span class="eyebrow">A LITTLE ABOUT ME ✿</span>
-          <h2>About MAYISM <span>♡</span></h2>
-          <h3>Hi! I'm Pheemwara,<br>but you can call me MAYISM.</h3>
-
+        <div class="about-content">
+          <p class="eyebrow">THE ARTIST BEHIND THE ART</p>
+          <h2>Hi, I'm <em>Pheemwara.</em></h2>
+          <p class="lead">A Thai illustrator with a background in architecture.</p>
           <p>
-            I'm an illustrator who loves creating characters, emotional scenes
-            and visual stories. I enjoy novel covers, character art and bringing
-            little moments to life through illustration.
+            I have a degree in Architecture and professional experience in
+            drafting and environmental impact assessment documentation in Thailand.
+            Since 2023, I've been working as a freelance illustrator, creating
+            novel cover illustrations for authors.
+          </p>
+          <p>
+            My architecture background has given me experience in design,
+            composition and visual detail. Through MAYISM, I bring that
+            foundation into character-focused art and storytelling.
           </p>
 
+          <div class="skill-list">
+            <span>Novel Covers</span><span>Character Art</span><span>Illustration</span>
+            <span>Photoshop</span><span>Visual Composition</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience section">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">MY JOURNEY</p>
+            <h2>From design to <em>illustration.</em></h2>
+          </div>
+          <p>A little of the professional journey behind the artwork.</p>
+        </div>
+
+        <div class="timeline">
+          <article>
+            <span class="year">2023–2026</span>
+            <div><h3>Freelance Illustrator</h3><p>Illustrating novel covers for authors.</p></div>
+          </article>
+          <article>
+            <span class="year">2020–2022</span>
+            <div><h3>Draftsman · Mitr Environment Thailand Co., Ltd.</h3><p>Reviewed design work and checked compliance with EIA requirements.</p></div>
+          </article>
+          <article>
+            <span class="year">2017</span>
+            <div><h3>Assistant Architect Intern · Woravisit Co., Ltd.</h3><p>Material quantity surveying.</p></div>
+          </article>
+        </div>
+
+        <div class="professional-details">
+          <div><h3>Education</h3><p>Bachelor's degree in Architecture, Rajamangala University of Suvarnabhumi.</p></div>
+          <div><h3>Tools</h3><p>Photoshop · AutoCAD · SketchUp · Revit · Lumion · Microsoft Office</p></div>
+          <div><h3>Languages</h3><p>Thai · English</p></div>
+        </div>
+      </section>
+
+      <section class="services section" id="services">
+        <div class="section-title">
+          <div><p class="eyebrow">HOW WE CAN WORK TOGETHER</p><h2>Made for your <em>story.</em></h2></div>
+        </div>
+        <div class="service-grid">
+          <article><span>♡</span><h3>Novel Covers</h3><p>Cover illustrations designed to express the mood and world of your story.</p></article>
+          <article><span>✿</span><h3>Character Art</h3><p>Expressive character illustrations with attention to personality and detail.</p></article>
+          <article><span>✧</span><h3>Custom Illustration</h3><p>Discuss a unique illustration or creative collaboration for your project.</p></article>
+        </div>
+      </section>
+
+      <section class="pakaaat section" id="pakaaat">
+        <img src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat taking a nap" loading="lazy">
+        <div>
+          <p class="eyebrow">A LITTLE PERSONAL TOUCH ♡</p>
+          <h2>Meet <em>Pakaaat.</em></h2>
           <p>
-            Thank you for visiting my little art corner. I hope you find
-            something here that makes you smile! ♡
+            Pakaaat is my beloved cat and little companion. She brings
+            sweetness to everyday life and keeps me company while I work on art.
           </p>
-
-          <a class="button button-pink" href="#contact">Read More About My Work →</a>
         </div>
+        <span class="paw">♡</span>
       </section>
 
-      <!-- PAKAAAT -->
-      <section class="section pakaaat-section" id="pakaaat">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">MY LITTLE MUSE ♡</span>
-            <h2>Meet PAKAAAT <span>♡</span></h2>
-          </div>
-          <span class="paw-decoration">♡ 🐾</span>
+      <section class="contact section" id="contact">
+        <div class="contact-intro">
+          <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+          <h2>Let's make something <em>meaningful.</em></h2>
+          <p>For novel covers, illustration projects and collaborations, send me a message.</p>
+          <a href="mailto:Mmayism005@gmail.com">Mmayism005@gmail.com ↗</a>
         </div>
 
-        <div class="pakaaat-layout">
-          <div class="pakaaat-gallery">
-
-            <figure class="polaroid polaroid-one">
-              <img src="assets/pakaaat/pakaaat-01.jpg" alt="Pakaaat looking curious" loading="lazy">
-              <figcaption>Curious ♡</figcaption>
-            </figure>
-
-            <figure class="polaroid polaroid-two">
-              <img src="assets/pakaaat/pakaaat-sleep.jpg" alt="Pakaaat taking a nap" loading="lazy">
-              <figcaption>Sleepy ♡</figcaption>
-            </figure>
-
-            <figure class="polaroid polaroid-three">
-              <img src="assets/pakaaat/pakaaat-02.jpg" alt="Pakaaat posing for a photo" loading="lazy">
-              <figcaption>Little muse ♡</figcaption>
-            </figure>
-
-          </div>
-
-          <div class="pakaaat-copy">
-            <span class="cat-heart">♡ ✿ ♡</span>
-            <h3>My little cuddle buddy!</h3>
-
-            <p>
-              PAKAAAT is my beloved cat and a big part of my everyday life.
-              She keeps me company while I draw, work and dream.
-            </p>
-
-            <p>
-              You'll often see her around in my art and stories.
-              A tiny cat with a very special place in my heart. ♡
-            </p>
-
-            <div class="sleepy-cat">
-              <img src="assets/pakaaat/pakaaat-03.jpg" alt="Pakaaat resting comfortably" loading="lazy">
-              <span>purr, nap, repeat ♡</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section class="section services-section" id="services">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">WHAT I DO ✿</span>
-            <h2>Let's create something <span>♡</span></h2>
-          </div>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card">
-            <span class="service-icon">♡</span>
-            <h3>Novel Covers</h3>
-            <p>Illustrated covers for your stories and creative projects.</p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">✿</span>
-            <h3>Character Art</h3>
-            <p>Portraits and character moments full of personality.</p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">✧</span>
-            <h3>Illustration</h3>
-            <p>Scenes, key visuals and visual storytelling.</p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">♡</span>
-            <h3>Commissions</h3>
-            <p>Custom illustration projects and collaborations.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section contact-section" id="contact">
-        <div class="contact-heading">
-          <span class="eyebrow">LET'S MAKE SOMETHING LOVELY ♡</span>
-          <h2>Let's Work Together <span>♡</span></h2>
-          <p>Have a project in mind? Send MAYISM a little message!</p>
-        </div>
-
-        <form class="contact-form" id="contact-form">
+        <form id="contact-form">
           <div class="form-row">
-            <div class="form-field">
-              <label for="sender-name">Your name *</label>
-              <input id="sender-name" name="name" type="text" placeholder="What should I call you?" required>
-            </div>
-
-            <div class="form-field">
-              <label for="sender-email">Your email *</label>
-              <input id="sender-email" name="email" type="email" placeholder="you@example.com" required>
-            </div>
+            <label>Your name *
+              <input name="name" type="text" placeholder="Your name" required>
+            </label>
+            <label>Your email *
+              <input name="email" type="email" placeholder="you@example.com" required>
+            </label>
           </div>
-
-          <div class="form-field">
-            <label for="project-type">What are you looking for?</label>
-            <select id="project-type" name="project">
-              <option value="Novel cover">Novel cover</option>
-              <option value="Character illustration">Character illustration</option>
-              <option value="Illustration">Illustration</option>
-              <option value="Commission">Commission</option>
-              <option value="Other project">Other project</option>
+          <label>Project type
+            <select name="project">
+              <option>Novel cover</option>
+              <option>Character art</option>
+              <option>Custom illustration</option>
+              <option>Collaboration</option>
+              <option>Other project</option>
             </select>
-          </div>
-
-          <div class="form-field">
-            <label for="project-message">Tell me a little more *</label>
-            <textarea id="project-message" name="message" rows="5" placeholder="Your idea, timeline, and anything else I should know..." required></textarea>
-          </div>
-
-          <button class="button button-pink submit-button" type="submit">
-            Send Message ♡
-          </button>
-
-          <p class="form-note">Your email app will open with your message ready to send.</p>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </label>
+          <label>Your message *
+            <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+          </label>
+          <button class="button primary" type="submit">Prepare Email ♡</button>
+          <p class="form-status" id="form-status" aria-live="polite"></p>
         </form>
       </section>
 
-      <!-- FOOTER -->
       <footer class="footer">
         <a class="footer-logo" href="#home">MAYISM ♡</a>
-        <p>Illustration · Characters · Novel Covers · Made with love ♡</p>
+        <p>Thai illustrator · Novel covers · Character art</p>
         <a href="#home">Back to top ↑</a>
       </footer>
-
     </main>
   </div>
 </body>
