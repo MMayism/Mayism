@@ -1,17 +1,64 @@
-const cards=[...document.querySelectorAll('.art-card[data-index]')];
-const modal=document.querySelector('.lightbox');
-const modalImg=modal.querySelector('.lightbox-image img');
-const modalTitle=modal.querySelector('.lightbox-caption strong');
-const modalType=modal.querySelector('.lightbox-caption span');
-let current=0;
-function openArtwork(index){current=(index+cards.length)%cards.length;const card=cards[current];const image=card.querySelector('img');modalImg.src=image.src;modalImg.alt=image.alt;modalTitle.textContent=card.querySelector('b').textContent;modalType.textContent=card.querySelector('small').textContent;if(!modal.open)modal.showModal();}
-cards.forEach((card,index)=>card.addEventListener('click',()=>openArtwork(index)));
-modal.querySelector('.prev').addEventListener('click',()=>openArtwork(current-1));
-modal.querySelector('.next').addEventListener('click',()=>openArtwork(current+1));
-modal.querySelector('.lightbox-close').addEventListener('click',()=>modal.close());
-modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
-document.addEventListener('keydown',e=>{if(!modal.open)return;if(e.key==='ArrowLeft')openArtwork(current-1);if(e.key==='ArrowRight')openArtwork(current+1);if(e.key==='Escape')modal.close()});
-const menu=document.querySelector('.menu-toggle');
-menu.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');menu.setAttribute('aria-expanded',String(open));document.querySelector('nav').classList.toggle('mobile-open',open)});
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{document.body.classList.remove('menu-open');document.querySelector('nav').classList.remove('mobile-open');menu.setAttribute('aria-expanded','false')}));
-document.getElementById('year').textContent=new Date().getFullYear();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('header nav');
+
+  if (menuButton && nav) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') !== 'true';
+
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      nav.classList.toggle('is-open', isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+      });
+    });
+  }
+
+  const lightbox = document.getElementById('art-lightbox');
+  const lightboxImage = lightbox?.querySelector('img');
+  const closeButton = lightbox?.querySelector('.lightbox-close');
+
+  const galleryImages = document.querySelectorAll(
+    '.gallery img, .hero-art img'
+  );
+
+  function closeLightbox() {
+    if (!lightbox || !lightboxImage) return;
+
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-active');
+    lightboxImage.removeAttribute('src');
+  }
+
+  galleryImages.forEach(img => {
+    img.style.cursor = 'zoom-in';
+
+    img.addEventListener('click', event => {
+      if (!lightbox || !lightboxImage) return;
+
+      event.preventDefault();
+      lightboxImage.src = img.currentSrc || img.src;
+      lightboxImage.alt = img.alt || 'MAYISM artwork enlarged';
+
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-active');
+    });
+  });
+
+  closeButton?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeLightbox();
+  });
+});
